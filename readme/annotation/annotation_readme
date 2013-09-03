@@ -1,0 +1,6 @@
+需要jar包
+1spring-aop.jar
+2aspectj.jar
+3aspectjweaver.jar
+
+#######自定义注解 实现缓存 #######
