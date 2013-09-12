@@ -31,11 +31,11 @@
    <import resource="applicationContextBase.xml"/>
    
    <!-- spring activemq的配置 -->
-   <import resource="applicationActiveMqContext_base.xml"/>
+<!--    <import resource="applicationActiveMqContext_base.xml"/> -->
  <!--mq集群 <import resource="applicationActiveMqContext_master_slave.xml"/> -->  
    
    <!-- spring aop自定义注解配置 -->
-   <import resource="applicationHibernateContext.xml"/>
-   <import resource="applicationMemcashedContext.xml"/>
+<!--    <import resource="applicationHibernateContext.xml"/> -->
+<!--    <import resource="applicationMemcashedContext.xml"/> -->
     
 </beans>
