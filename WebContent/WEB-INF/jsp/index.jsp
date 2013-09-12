@@ -47,5 +47,9 @@
 
 <button onclick="tt()">ttt</button>
   <input id="loginbtn" type="button" onclick="login()" value="ok" />
+ <br /> <br /> <br />
+<h1>spring 权限</h1>  
+<a href="admin.jsp">进入admin页面</a>
+<a href="other.jsp">进入其它页面</a>
 </body>
 </html>
