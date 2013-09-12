@@ -11,7 +11,7 @@ import com.spring.mq.service.BaseMessageService;
 @Controller
 public class ControllerAction {
 
-	@Autowired
+	//@Autowired
 	private BaseMessageService bs;
 	
 	@RequestMapping(value = "/ms", method = RequestMethod.GET)

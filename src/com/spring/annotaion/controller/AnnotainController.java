@@ -13,7 +13,7 @@ import com.spring.hibernate.entity.Ship;
 @Controller
 public class AnnotainController {
 
-	@Autowired
+	//@Autowired
 	private TestAnnotaionService tas;
 	
 	@RequestMapping(value = "/test1/{type}", method = RequestMethod.GET)

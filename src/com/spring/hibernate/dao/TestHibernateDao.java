@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class TestHibernateDao {
  
-	@Autowired
+	//@Autowired
 	private HibernateTemplate templete;   
 	
 	@SuppressWarnings("unchecked")

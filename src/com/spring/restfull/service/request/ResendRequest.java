@@ -1,10 +1,16 @@
 package com.spring.restfull.service.request;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement 
-public class ResendRequest {
+public class ResendRequest implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4700749058991955758L;
 	private int type;
 	private String startTime;
 	private String endTime;

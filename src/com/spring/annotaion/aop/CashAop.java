@@ -20,12 +20,12 @@ import com.spring.annotaion.annotaion.Cashable;
  * @author Administrator
  *
  */
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class CashAop {
 
-	@Autowired
-	@Qualifier("memcachedClient")
+	//@Autowired
+	//@Qualifier("memcachedClient")
 	private MemcachedClient mc;
 	
 	public CashAop(){

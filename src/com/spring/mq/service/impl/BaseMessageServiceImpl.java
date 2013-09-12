@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.spring.mq.mess.Mess;
 import com.spring.mq.service.BaseMessageService;
 
-@Service
+//@Service
 public class BaseMessageServiceImpl implements BaseMessageService {
 
 	@Autowired

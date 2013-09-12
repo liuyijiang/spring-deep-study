@@ -11,10 +11,10 @@ import com.spring.hibernate.dao.TestHibernateDao;
 import com.spring.hibernate.entity.Ship;
 import com.spring.hibernate.entity.Tank;
 
-@Service
+//@Service
 public class TestAnnotaionService extends TestAnnotaionServiceBase {
 
-	@Autowired
+	//@Autowired
 	private TestHibernateDao dao;
 	
 	@Cashable(cashed = false)//不缓存

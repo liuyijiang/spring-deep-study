@@ -18,7 +18,7 @@ import com.spring.ssl.service.LoginService;
 @Controller
 public class SSLLoginController {
 
-	@Autowired
+	//@Autowired
 	private LoginService loginService;
 	
 	@RequestMapping(value = "/sslindex", method = RequestMethod.GET)
