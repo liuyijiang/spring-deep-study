@@ -20,7 +20,32 @@
         });
    }
    
+     function tt(){
+    	 var j = {"type":22,"startTime":"2012-12-33","endTime":"2013-12-11"};
+    	 //var j = {"request.type":22,"request.startTime":"2012-12-33","request.endTime":"2013-12-11"};
+      	 $.ajax({
+    	   		url : "http://192.168.2.200:8081/springdeepstudy/getDataParm",
+    	   		type : "POST",
+    	   		cache : false,
+    	   		async : false,
+    	   		dataType : "json",
+    	   		contentType: "application/json;",   
+    	   		data : JSON.stringify(j),
+    	   		success : function(item) {
+    	   		    alert(item.name);
+    	   		}
+    	 }); 
+      }  
+     
+     
 </script>
+<form method="post" enctype="multipart/form-data"  action="${pageContext.request.contextPath}/getDataParms">
+   <input name="type"/>
+   <input type="file">
+   <input type="submit">
+</form>
+
+<button onclick="tt()">ttt</button>
   <input id="loginbtn" type="button" onclick="login()" value="ok" />
 </body>
 </html>
