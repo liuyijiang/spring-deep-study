@@ -13,4 +13,9 @@ public class SecurityController {
 		return new ModelAndView("index.jsp");
 	}
 	
+	@RequestMapping(value = "/slogin", method = RequestMethod.GET)
+	public ModelAndView login(){
+		return new ModelAndView("security_login.jsp");
+	}
+	
 }
