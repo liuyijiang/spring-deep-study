@@ -37,5 +37,8 @@
    <!-- spring aop自定义注解配置 -->
 <!--    <import resource="applicationHibernateContext.xml"/> -->
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
+
+    <!-- 自定义拦截器 -->
+    <import resource="applicationInterceptorContext.xml"/>
     
 </beans>

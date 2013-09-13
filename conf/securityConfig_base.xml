@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+  
+     <b:bean id="myFilter" class="com.spring.security.interceptor.MyFilterSecurityInterceptor">
+        <b:property name="authenticationManager"
+            ref="authenticationManager" />
+        <b:property name="accessDecisionManager"
+            ref="myAccessDecisionManagerBean" />
+        <b:property name="securityMetadataSource"
+            ref="securityMetadataSource" />
+    </b:bean>
+  
+  <!-- 被拒绝后的页面 -->  
+  <http auto-config="true" access-denied-page="/accessDenied.jsp">
+  <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
+<!--   <intercept-url pattern="/**/*.jpg" filters="none" /> -->
+<!--   <intercept-url pattern="/**/*.png" filters="none" /> -->
+<!--   <intercept-url pattern="/**/*.gif" filters="none" /> -->
+<!--   <intercept-url pattern="/**/*.css" filters="none" /> -->
+<!--   <intercept-url pattern="/**/*.js" filters="none" /> -->
+    
+  <!-- 登录页面和忘记密码页面不过滤 -->
+<!--   <intercept-url pattern="/login.jsp" filters="none" />filters 选择是否过滤 -->
+  
+   <!-- 资源需要的权限 -->  
+<!--   <intercept-url pattern="/unitsManager" access="ROLE_PLATFORMADMIN" />access  -->
+    
+<!--   <form-login login-page="/login.jsp"  authentication-failure-url="/login.jsp?error=true"   default-target-url="/index.jsp" /> -->
+    
+    <custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR"/> 
+   </http>
+   
+
+   
+</b:beans>
