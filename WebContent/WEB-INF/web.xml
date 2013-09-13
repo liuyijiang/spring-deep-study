@@ -67,10 +67,13 @@
     <servlet-name>jsp</servlet-name>
     <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
   </servlet>
+  
+  <!-- 静态资源 -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>/assets/*</url-pattern>
+    <url-pattern>/js/*</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>jsp</servlet-name>
     <url-pattern>/WEB-INF/jsp/*</url-pattern>
