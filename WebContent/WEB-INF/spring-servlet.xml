@@ -4,14 +4,42 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/aop
+                     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+				http://www.springframework.org/schema/tx 
+				http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
     <!-- @Controller, @Service, @Configuration, etc. -->
     <context:component-scan base-package="com"/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" />
+	
+	
+<!-- 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> -->
+<!-- 		  <property name="dataSource" ref="mybdataSource" /> -->
+<!-- 		</bean> -->
+	   
+<!-- 	   <tx:advice id="txAdvie" transaction-manager="transactionManager"> -->
+<!-- 	      <tx:attributes> -->
+<!-- 	         <tx:method name="get*" read-only="true"/> -->
+<!-- 	         <tx:method name="query*" read-only="true"/> -->
+<!-- 	         <tx:method name="update*" read-only="false" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!-- 	         <tx:method name="save*" read-only="false" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!-- 	         <tx:method name="delete*" read-only="false" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!-- 	      </tx:attributes> -->
+<!-- 	   </tx:advice> -->
+	   
+	   
+<!-- 	   <aop:config> -->
+<!-- 			<aop:pointcut expression="execution(public * com.spring.mybatis.service.*Service.*(..))" id="pointcut"/> -->
+<!-- 			<aop:advisor advice-ref="txAdvie" pointcut-ref="pointcut"/> -->
+<!--       </aop:config> -->
+      
 </beans>
