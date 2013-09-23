@@ -14,9 +14,9 @@
                      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <context:component-scan base-package="com"/>
-	<aop:aspectj-autoproxy /> 
+	<aop:aspectj-autoproxy proxy-target-class="true"/> 
     <context:annotation-config />
-		
+    
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -42,6 +42,10 @@
 <!--     <import resource="applicationInterceptorContext.xml"/> -->
     
     <!-- 文件上传 -->
-    <import resource="applicationContextfileupload.xml"/>
+<!--     <import resource="applicationContextfileupload.xml"/> -->
+    
+    <!-- spring 集成 mybatis -->
+    <import resource="applicationMybatisContext.xml"/>
+   
     
 </beans>
