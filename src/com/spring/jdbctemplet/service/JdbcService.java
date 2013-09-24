@@ -8,6 +8,7 @@ import com.model.Ship;
 import com.spring.jdbctemplet.dao.ShipDao;
 
 @Service
+@Transactional
 public class JdbcService {
 
 	@Autowired
@@ -15,12 +16,13 @@ public class JdbcService {
 	
 	@Transactional(rollbackFor=Exception.class)
     public void saveShip(Ship ship){
-		try{
-    	shipDao.saveShip(ship);
-    	int i = 0/0;
-    	System.out.println(i);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		//try{
+	    	shipDao.saveShip(ship);
+	    	 throw new RuntimeException();
+//	        List list = null;
+//	    	System.out.println(list.size());
+		//}catch(Exception e){
+		//	e.printStackTrace();
+		//}
 	}
 }
