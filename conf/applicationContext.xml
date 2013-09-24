@@ -46,26 +46,9 @@
 <!--     <import resource="applicationContextfileupload.xml"/> -->
     
     <!-- spring 集成 mybatis -->
-    <import resource="applicationMybatisContext.xml"/>
+<!--     <import resource="applicationMybatisContext.xml"/> -->
    
-   <bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="mybdataSource" />
-   
-   <aop:config>
-		<aop:pointcut id="txPointCut" expression="execution(* com.spring.mybatis.service..*.*(..))" />
-		<aop:advisor pointcut-ref="txPointCut" advice-ref="txAdvice" />
-	</aop:config>
-
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="get*" read-only="true" />
-			<tx:method name="delete*" />
-			<tx:method name="save*" read-only="true" />
-			<tx:method name="update*" />
-			<tx:method name="insert*" />
-			<tx:method name="*" propagation="SUPPORTS" />
-		</tx:attributes>
-	</tx:advice>
+    <!-- spring jdbctemplate -->
+    <import resource="applicationJdbcTemplateContext.xml"/>
     
 </beans>
