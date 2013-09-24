@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mybatis.dao.mapper.ShipMapper">
+<!--  新增记录  -->
+    <insert id="insertShip" parameterType="Ship" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_ship(id,name) values(#{id},#{name})
+    </insert>
+<!--  查询单条记录  -->
+    <select id="selectShip" parameterType="int" resultType="Ship">
+       select * from tb_ship where id = #{id}
+    </select>
+<!--  修改记录  -->
+    <update id="updateShip"  parameterType="int">
+        update tb_ship set name = "222jb" where id = #{id}
+    </update>
+<!--  查询所有记录  -->
+<!--     <select id="selectAll" resultType="Blog"> -->
+<!--         select * from t_blog -->
+<!--     </select> -->
+<!--  删除记录  -->
+<!--     <delete id="deleteBlog" parameterType="int"> -->
+<!--        delete from t_blog where id = #{id} -->
+<!--     </delete> -->
+   
+</mapper>
