@@ -24,7 +24,7 @@ public class JdbcTemplateController {
 		Ship ship = new Ship();
 		String str = (new Date()).toString();
 		ship.setId(id);
-		ship.setName("mimi22 "+str);
+		ship.setName("jim22 "+str);
 		service.saveShip(ship);
 		return str;
 	}
