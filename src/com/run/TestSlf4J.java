@@ -28,11 +28,16 @@ public class TestSlf4J {
         catch (Exception e) {
           e.printStackTrace();
         }
-		 Integer t = 1132;  
+		 Integer t = 55661132;  
 		 Integer oldT = 443;
-		logger.debug("Temperature set to {}. Old temperature was {}.", t, oldT);  
-		logger.info("Temperature set to {}. Old temperature was {}.", t, oldT);  
-		logger.error("Temperature set to {}. Old temperature was {}.", t, oldT);
+		 logger.trace("======trace");  
+		 logger.debug("======debug");  
+		 logger.info("======info");  
+		 logger.warn("======warn");  
+		 logger.error("======error");
+////		logger.debug("Temperature set to {}. Old temperature was {}.", t, oldT);  
+//		logger.info("Temperature set to {}. Old temperature was {}.", t, oldT);  
+//		logger.error("Temperature set to {}. Old temperature was {}.", t, oldT);
 		System.out.println(1);
 	}
  

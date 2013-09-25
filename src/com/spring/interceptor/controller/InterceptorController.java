@@ -15,6 +15,7 @@ public class InterceptorController {
 	@LoginRequired
 	@RequestMapping(value = "/intindex", method = RequestMethod.GET)
 	public ModelAndView index(){
+		System.out.println(123);
 		return new ModelAndView("index.jsp");
 	}
 	
