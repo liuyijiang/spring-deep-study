@@ -31,7 +31,8 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">   
         <property name="interceptors">  
             <list>  
-                <bean class="com.spring.interceptor.LoginInterceptor"/>  
+<!--                 <bean class="com.spring.interceptor.LoginInterceptor"/>   -->
+                <bean class="com.spring.interceptor.Slf4jInterceptor"/>  
             </list>  
         </property>  
     </bean>  
