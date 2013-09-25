@@ -37,7 +37,7 @@
    <import resource="applicationContextBase.xml"/>
    
    <!-- spring activemq的配置 -->
-   <import resource="applicationActiveMqContext_base.xml"/>
+<!--    <import resource="applicationActiveMqContext_base.xml"/> -->
  <!--mq集群 <import resource="applicationActiveMqContext_master_slave.xml"/> -->  
    
    <!-- spring aop自定义注解配置 -->
@@ -45,7 +45,7 @@
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
 
     <!-- 自定义拦截器 -->
-<!--     <import resource="applicationInterceptorContext.xml"/> -->
+    <import resource="applicationInterceptorContext.xml"/>
     
     <!-- 文件上传 -->
 <!--     <import resource="applicationContextfileupload.xml"/> -->
