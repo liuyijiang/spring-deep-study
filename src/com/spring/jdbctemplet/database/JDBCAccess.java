@@ -17,7 +17,7 @@ public class JDBCAccess {
   
 	private final Logger logger = LoggerFactory.getLogger(JDBCAccess.class);
 	
-	@Autowired
+	//@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	 public <T> List<T> find(String sql, RowMapper<T> rowMapper, Object... params) {

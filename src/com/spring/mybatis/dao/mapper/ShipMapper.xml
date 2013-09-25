@@ -13,7 +13,7 @@
     </select>
 <!--  修改记录  -->
     <update id="updateShip"  parameterType="int">
-        update tb_ship set name = "222jb" where id = #{id}
+        update tb_ship set name = "liuyijiang" where id = #{id}
     </update>
 <!--  查询所有记录  -->
 <!--     <select id="selectAll" resultType="Blog"> -->

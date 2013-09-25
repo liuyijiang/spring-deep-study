@@ -30,7 +30,7 @@ public class MybatisController {
 		Ship ship = new Ship();
 		String str = (new Date()).toString();
 		ship.setId(id);
-		ship.setName("m12"+str);
+		ship.setName("m1212"+str);
 		service.updateShip(ship);
 		return str;
 	}

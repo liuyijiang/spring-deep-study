@@ -9,7 +9,7 @@ import com.spring.jdbctemplet.database.JDBCAccess;
 @Component
 public class ShipDao {
   
-	@Autowired
+	//@Autowired
 	private JDBCAccess access;
 	
 	public void saveShip(Ship ship){

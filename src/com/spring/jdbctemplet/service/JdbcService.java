@@ -11,7 +11,7 @@ import com.spring.jdbctemplet.dao.ShipDao;
 @Transactional
 public class JdbcService {
 
-	@Autowired
+	//@Autowired
 	private ShipDao shipDao;
 	
 	@Transactional(rollbackFor=Exception.class)
