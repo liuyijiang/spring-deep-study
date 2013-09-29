@@ -45,10 +45,10 @@
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
 
     <!-- 自定义拦截器 -->
-    <import resource="applicationInterceptorContext.xml"/>
+<!--     <import resource="applicationInterceptorContext.xml"/> -->
     
     <!-- 文件上传 -->
-<!--     <import resource="applicationContextfileupload.xml"/> -->
+    <import resource="applicationContextfileupload.xml"/>
     
     <!-- spring 集成 mybatis -->
 <!--     <import resource="applicationMybatisContext.xml"/> -->
