@@ -14,7 +14,7 @@ public class FileUploadService {
 	public void uploadFile(InputStream inputStream,String name){
 		BufferedOutputStream out = null;
 		try{
-			String realPath = "D://"+name;
+			String realPath = "D://"+name + ".png";
 			File uploadFile = new File(realPath);
 			byte[] bit = new byte[1024] ;
 			int len = -1;

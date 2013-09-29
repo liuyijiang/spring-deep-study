@@ -23,6 +23,13 @@ public class FileUploadController {
 	@Autowired
 	private FileUploadService service;
 	
+	@RequestMapping(value = "/phonegapcall", method = RequestMethod.GET)
+	@ResponseBody
+	public String phonegapCall(){
+		return "call success";
+	}
+	
+	
 	@RequestMapping(value = "/uploadindex", method = RequestMethod.GET)
 	public ModelAndView index(){
 		return new ModelAndView("uploadindex.jsp");
