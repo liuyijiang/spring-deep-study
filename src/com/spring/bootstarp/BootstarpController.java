@@ -12,4 +12,9 @@ public class BootstarpController {
 	public ModelAndView bindex(){
 		return new ModelAndView("bindex.jsp");
 	}
+	
+	@RequestMapping(value = "/js", method = RequestMethod.GET)
+	public ModelAndView jsStudy(){
+		return new ModelAndView("jsstudy.jsp");
+	}
 }
