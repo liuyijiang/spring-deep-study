@@ -17,4 +17,9 @@ public class BootstarpController {
 	public ModelAndView jsStudy(){
 		return new ModelAndView("jsstudy.jsp");
 	}
+	
+	@RequestMapping(value = "/jsweb", method = RequestMethod.GET)
+	public ModelAndView jsWebStudy(){
+		return new ModelAndView("jswebstudy.jsp");
+	}
 }
