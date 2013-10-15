@@ -8,6 +8,7 @@
 </head>
 <body>
 js test Window对象
+<button id="ss" >ss</button>
 <script type="text/javascript">
 // var cal = {
 //   operand1:1,
@@ -51,10 +52,53 @@ js test Window对象
 // }());
 
 //js面向对象
-var ranges = new Range(2,4);
-alert(ranges.showall());
+// var ranges = new Range(2,4);
+// alert(ranges.showall());
+// var url = "http://localhost:8081/springdeepstudy/bajaxget";
+// var callserver = new Ajaxcall(url,{"startTime":"2012-12-11","endTime":"2012-12-21","type":1});
+// callserver.callWithoutParm();
+
+
+// function ss(){
+// 	$.ajax({
+// 		url : "http://localhost:8081/springdeepstudy/bajaxget",
+// 		type : "GET",
+// 		cache : false,
+// 		async : false,
+// 		dataType : "json",
+// 		contentType: "application/json;",   
+// 		success : function(item) {
+// 		    alert(item.name);
+// 		}
+// 	 }); 
+// }
+
+//
+(function tt($){ //$ jquery
+// 	var url = "http://localhost:8081/springdeepstudy/bajaxget";
+// 	var callserver = new Ajaxcall($,url,{"startTime":"2012-12-11","endTime":"2012-12-21","type":1});
+// 	callserver.callWithoutParm();
+
+	var show = function(event){
+		alert(event.data.name);
+	};
+	
+	var d = {name:"liuyijiang"};
+	
+	var callserver = new Ajaxcall("ss","ss");
+	
+	$("#ss").bind("click",d,callserver.shownumber);
+	
+})(jQuery);
+
+// function t(){
+// 	var url = "http://localhost:8081/springdeepstudy/bajaxget";
+// 	var callserver = new Ajaxcall(url,{"startTime":"2012-12-11","endTime":"2012-12-21","type":1});
+// 	callserver.callWithoutParm();
+// }
 
 </script>
-<button onclick="s()">ss</button>
+<button id="ss2" onclick="t()">111ss</button>
+<p><input id="cc" /></p>
 </body>
 </html>
