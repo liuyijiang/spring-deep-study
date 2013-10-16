@@ -28,6 +28,9 @@ public class TestCallable {
         		System.out.println("loading....");
         		if(f.isDone()){
         			System.out.println(f.get().toString());//get() 会柱塞 直到完成
+        			System.out.println(f.isCancelled());
+        			f.cancel(true);
+        			System.out.println(f.isCancelled());
         		}
         		Thread.sleep(1000);
         	}
