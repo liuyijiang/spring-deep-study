@@ -6,6 +6,19 @@
 <head>
 <title>maven</title>
 </head>
+<style type="text/css">
+body 
+{
+      margin:0px;
+      padding:0px;
+      background-color:#E7EAEB;
+      font-family:"微软雅黑","黑体","宋体";
+      font-size:12px;
+      height:36px;
+            
+}  
+
+</style>
 <body>
 <c:forEach items="${list }" var="opt">
    <xmp>
