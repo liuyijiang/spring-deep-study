@@ -79,15 +79,15 @@ js test Window对象
 // 	var callserver = new Ajaxcall($,url,{"startTime":"2012-12-11","endTime":"2012-12-21","type":1});
 // 	callserver.callWithoutParm();
 
-	var show = function(event){
-		alert(event.data.name);
-	};
+// 	var show = function(event){
+// 		alert(event.data.name);
+// 	};
 	
-	var d = {name:"liuyijiang"};
+// 	var d = {name:"liuyijiang"};
 	
-	var callserver = new Ajaxcall("ss","ss");
+// 	var callserver = new Ajaxcall("ss","ss");
 	
-	$("#ss").bind("click",d,callserver.shownumber);
+// 	$("#ss").bind("click",d,callserver.shownumber);
 	
 })(jQuery);
 
