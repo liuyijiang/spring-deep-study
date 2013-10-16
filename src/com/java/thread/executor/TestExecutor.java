@@ -21,8 +21,12 @@ public class TestExecutor {
 //		server.endServer();
 		ExecutorService executor = Executors.newCachedThreadPool();
 		//executor.
-		
-		
+		for(int i=0;i<5;i++){
+			executor.execute(new Run());
+		}
+		//executor.s
+		executor.shutdown();
+		System.out.println("##############shutdwon#############");
 	}
 
 }
