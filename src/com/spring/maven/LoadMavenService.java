@@ -26,7 +26,7 @@ public class LoadMavenService {
 	}
 
 	public LoadMavenService(){
-		//init(); //导入的时候打开
+		init(); //导入的时候打开
 	}
 	
 	public void init(){
@@ -117,19 +117,19 @@ public class LoadMavenService {
 		boolean success = false;
 		String cmd = "cmd.exe /c mvn install:install-file -Dfile="+ filePath+bean.getFileName() +" -DgroupId="+ bean.getGroupId() +" -DartifactId="+ bean.getArtifactId() +" -Dversion="+ bean.getVersion() +" -Dpackaging=jar";
 		System.out.println(cmd);
-		try {
-			Runtime run = Runtime.getRuntime();
-			Process p = run.exec(cmd);
-			int exitVal = p.waitFor();
-			if (exitVal == CMD_SUCCESS) {
-				writeToFile(bean.getFileName());
-				success = true;
-			}else{
-				System.out.println("操作失败："+exitVal);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Runtime run = Runtime.getRuntime();
+//			Process p = run.exec(cmd);
+//			int exitVal = p.waitFor();
+//			if (exitVal == CMD_SUCCESS) {
+//				writeToFile(bean.getFileName());
+//				success = true;
+//			}else{
+//				System.out.println("操作失败："+exitVal);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return success;
 	}
 

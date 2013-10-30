@@ -34,7 +34,15 @@ public class TestSlf4J {
 		 logger.debug("======debug");  
 		 logger.info("======info");  
 		 logger.warn("======warn");  
-		 logger.error("======error");
+		 try{
+			 int i = 0 / 0;
+		 }catch(Exception e){
+			 logger.error("error message {}. error StackTrace {}.",e.getMessage(), e);
+			 logger.error("error StackTrace ", e);
+		 }
+		 
+		 
+		 
 ////		logger.debug("Temperature set to {}. Old temperature was {}.", t, oldT);  
 //		logger.info("Temperature set to {}. Old temperature was {}.", t, oldT);  
 //		logger.error("Temperature set to {}. Old temperature was {}.", t, oldT);
