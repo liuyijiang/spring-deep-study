@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="http://www.waileecn.com/mxk/assets/js/jquery-1.7.2.js"></script>
+<body>
+<script type="text/javascript">
+
+   
+     function tt(){
+
+       alert(3);
+      	 $.ajax({
+    	   		url : "http://localhost:8080/springdeepstudy/bajaxgetjsonp",
+    	   		type : "POST",
+    	   		cache : false,
+    	   		async : false,
+    	   		dataType : "jsonp",
+            jsonp: "callback",
+    	   		contentType: "application/json;",   
+    	   		success : function(item) {
+    	   		    alert(item.name);
+    	   		}
+    	 }); 
+      }  
+     
+     
+   function ff(){
+    
+      var AjaxUrl = "http://192.168.1.9:8080/springdeepstudy/bajaxgetjsonp?callback=?";
+           $.getJSON(AjaxUrl, function (json) {
+               alert(json.name);
+          });
+
+   }
+
+</script>
+<h1>JSONP</h1>
+<button onclick="ff()">fff</button>
+<button onclick="tt()">ttt</button>
+</body>
+</html>
