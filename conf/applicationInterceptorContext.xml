@@ -32,7 +32,8 @@
         <property name="interceptors">  
             <list>  
 <!--                 <bean class="com.spring.interceptor.LoginInterceptor"/>   -->
-                <bean class="com.spring.interceptor.Slf4jInterceptor"/>  
+<!--                 <bean class="com.spring.interceptor.Slf4jInterceptor"/>   -->
+                    <bean class="com.spring.interceptor.JSONPInterceptor"/>
             </list>  
         </property>  
     </bean>  

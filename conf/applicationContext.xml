@@ -45,7 +45,7 @@
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
 
     <!-- 自定义拦截器 -->
-<!--     <import resource="applicationInterceptorContext.xml"/> -->
+<!--    <import resource="applicationInterceptorContext.xml"/>  -->
     
     <!-- 文件上传 -->
     <import resource="applicationContextfileupload.xml"/>
