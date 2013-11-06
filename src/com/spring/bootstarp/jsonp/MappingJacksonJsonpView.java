@@ -1,4 +1,4 @@
-package com.spring.bootstarp;
+package com.spring.bootstarp.jsonp;
 
 import java.util.Map;
 
@@ -27,7 +27,7 @@ public class MappingJacksonJsonpView extends MappingJacksonJsonView {
 	 */
     @Override
 	public void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+        //jsonp只支持get请求
         if("GET".equals(request.getMethod().toUpperCase())) {
             @SuppressWarnings("unchecked")
             Map<String, String[]> params = request.getParameterMap();
@@ -37,13 +37,10 @@ public class MappingJacksonJsonpView extends MappingJacksonJsonView {
                 super.render(model, request, response);
                 response.getOutputStream().write(new String(");").getBytes());
                 response.setContentType("application/javascript");
-            }
-
-            else {
+            }else {
                 super.render(model, request, response);
             }
         }
-
         else {
             super.render(model, request, response);
         }
