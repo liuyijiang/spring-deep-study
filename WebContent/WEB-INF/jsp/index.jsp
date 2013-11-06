@@ -24,18 +24,30 @@
     	 var j = {"type":22,"startTime":"2012-12-33","endTime":"2013-12-11"};
     	 //var j = {"request.type":22,"request.startTime":"2012-12-33","request.endTime":"2013-12-11"};
       	 $.ajax({
-    	   		url : "http://192.168.2.200:8081/springdeepstudy/getDataParm",
-    	   		type : "POST",
+    	   		//url : "http://localhost:8080/springdeepstudy/bajaxget",
+    	   		url :"http://localhost/json",
+    	   		type : "GET",
     	   		cache : false,
     	   		async : false,
     	   		dataType : "json",
     	   		contentType: "application/json;",   
-    	   		data : JSON.stringify(j),
     	   		success : function(item) {
     	   		    alert(item.name);
     	   		}
     	 }); 
       }  
+      
+      function ff(){
+      alert(1);
+            $.ajax({
+               dataType: 'jsonp',
+               url : "http://localhost/rest",
+		        success : function(item) {
+    	   		    alert(item.name);
+    	   		}
+         });
+      
+      }
      
      
 </script>
@@ -45,7 +57,8 @@
    <input type="submit">
 </form>
 
-<button onclick="tt()">ttt</button>
+<button onclick="tt()">ttt2</button>
+<button onclick="ff()">ff2</button>
   <input id="loginbtn" type="button" onclick="login()" value="ok" />
  <br /> <br /> <br />
 <h1>spring 权限</h1>  
