@@ -36,6 +36,10 @@
     <!-- spring mvc 的配置 -->
    <import resource="applicationContextBase.xml"/>
    
+   <!-- mongodb -->
+   <import resource="applicationMongoDBContext.xml"/>
+   
+   
    <!-- spring activemq的配置 -->
 <!--    <import resource="applicationActiveMqContext_base.xml"/> -->
  <!--mq集群 <import resource="applicationActiveMqContext_master_slave.xml"/> -->  
