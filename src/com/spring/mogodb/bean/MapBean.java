@@ -1,29 +1,34 @@
 package com.spring.mogodb.bean;
 
+import org.springframework.data.annotation.Id;
+
 public class MapBean {
     
-	private String lat;
-	private String lng;
-	private int id;
+	@Id
+	private String id;
+	private Double[] loc;
+	private String place;
 	
-	public String getLat() {
-		return lat;
+	public Double[] getLoc() {
+		return loc;
 	}
-	public void setLat(String lat) {
-		this.lat = lat;
+	public void setLoc(Double[] loc) {
+		this.loc = loc;
 	}
-	public String getLng() {
-		return lng;
+	public String getPlace() {
+		return place;
 	}
-	public void setLng(String lng) {
-		this.lng = lng;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
+    
+	
 	
 	
 	
