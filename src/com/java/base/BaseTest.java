@@ -4,8 +4,9 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Table;
 
 public class BaseTest {
@@ -22,6 +23,12 @@ public class BaseTest {
 		b.testmethod(Bean.class);
 	}
 
+	public void testPageModel(){
+		PageModel<Bean> pm = new PageModel<Bean>();
+		Bean bean = new Bean();
+		pm.add(bean);
+	}
+	
 	//获得类的注解
 	public void test(Class<?> clazss){
 		//Entity entity = clazss.getAnnotation(Entity.class);//获得类的某一个注解

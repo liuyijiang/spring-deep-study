@@ -9,6 +9,7 @@ public class Bean {
 	private String bean_str2;
 	private String bean_str3;
 	private long bean_str4;
+	public String bean_str5;
 	
 	public int getBean_str1() {
 		return bean_str1;
@@ -33,6 +34,12 @@ public class Bean {
 	}
 	public void setBean_str4(long bean_str4) {
 		this.bean_str4 = bean_str4;
+	}
+	public String getBean_str5() {
+		return bean_str5;
+	}
+	public void setBean_str5(String bean_str5) {
+		this.bean_str5 = bean_str5;
 	}
 	
 	
