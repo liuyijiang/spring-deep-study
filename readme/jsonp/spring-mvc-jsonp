@@ -1,0 +1,40 @@
+spring mvc 支持jsonp
+step1 
+  创建直接的jsonp视图支持
+  com.spring.bootstarp.jsonp。MappingJacksonJsonpView
+  
+ step2
+  配置解析器
+  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"> 
+    <property name="favorPathExtension" value="true"/> 
+    <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->  
+    <property name="mediaTypes"> 
+        <map> 
+           <entry key="json" value="application/json"/> 
+           <entry key="jsonp" value="application/javascript"/> 
+       </map> 
+     </property> 
+     <property name="defaultViews"> 
+       <list> 
+           <!-- 和上面的mediaTypes 对应 -->
+           <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/> 
+           <bean class="com.spring.bootstarp.MappingJacksonJsonpView"/> 
+        </list> 
+    </property> 
+ </bean>  
+ 
+step3
+controller中返回ModelAndView
+@RequestMapping(value = "/jsonpview", method = {RequestMethod.GET,RequestMethod.POST})
+public ModelAndView getJsonView(){
+	UserVO vo = new UserVO();
+	vo.setId(12);
+	vo.setName("jimanan刘一江" +2222);
+	ModelAndView m = new ModelAndView();
+	m.addObject(vo);
+	return m;
+}
+
+step4
+前端
+ var AjaxUrl = "http://192.168.2.139:8080/springdeepstudy/jsonpview.jsonp?callback=?";

@@ -1,0 +1,26 @@
+使用zip压缩版安装mysql
+解压后的有my-default.ini 文件夹下 新建一个my.ini
+#mysql配置（需要持续学习）
+在my.ini中加入以下类容（最基本配置）
+-------------------------------------------------------------
+-[mysqld]
+-bind-address = 0.0.0.0
+-port = 3306
+-
+-# 设置mysql的安装目录
+-basedir=D:\mysql\mysql-5.6.14-winx64\mysql-5.6.14-winx64
+-
+-# 设置mysql数据库的数据的存放目录
+-datadir=D:\mysql\mysql-5.6.14-winx64\mysql-5.6.14-winx64\data
+-
+-
+-# 允许最大连接数
+-max_connections=200
+----------------------------------------------------------------
+切换到bin目录执行mysqld。exe -install 
+提示服务安装成功！运行services.msc一看，确实有一个名为MySQL的服务了，启动它。
+此时默认密码是空
+mysql -uroot -p 提示输入密码 直接回车
+修改root密码 sqladmin -u root password ‘new_password’
+
+#mysql ini 配置

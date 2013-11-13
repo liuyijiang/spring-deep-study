@@ -1,0 +1,62 @@
+##############################################
+#    mysql分片_分区_集群相关
+###############################################
+
+mysql中分片与分区的概念
+1# partition水平分区
+查看数据库是否支持分区
+在5.6之前 是可以用 show variables like '%partition%';
+ 5.6开始使用 SHOW PLUGINS; 查看partition是否active
+ 
+ ---------------range分区-----------------------------------------------------------
+ ￥
+ 分区表的建立（question 分区表不支持主键？ 如果id primay key 报错）
+ create table tb_ship_p(id int,name varchar(50),createTime date) engine=myisam
+ partition by range(year(createTime)) //year();这是个方法 也可以是to_day();
+ (partition p0 values less than (2064),
+ partition p1 values less than(2100),
+ partition p2 values less than(2146),
+ partition p3 values less than maxvalue);
+ 
+ ￥
+ 修改一个表 让其可以分区（注意分区的键必须是主键）
+ 将分区键设为主键
+ alter table tb_ship_p1 drop primary key,add primary key (id,createTime);
+ 修改表创建分区
+ alter table tb_ship_p1 partition by range(year(createTime))
+ (partition p0 values less than (2064),
+ partition p1 values less than(2100),
+ partition p2 values less than(2146),
+ partition p3 values less than maxvalue);
+ -------------------------------------------------------------------range分区完
+ 
+ 
+ 
+ ----------------------------创建hash分区-------------------------------------------------
+ HASH分区主要用来确保数据在预先确定数目的分区中平均分布。在RANGE和LIST分区中，
+必须明确指定一个给定的列值或列值集合应该保存在哪 个分区中；而在HASH分区中，MySQL 自动完成这些工作，
+你所要做的只是基于将要被哈希的列值指定一个列值或表达式，以及指定被分区的表将要被分割成的分区数量。
+
+create table tb_ship_p2
+(id int  ,
+name varchar(50),
+createTime date,
+)
+partition by hash(year(createTime))
+partitions 4;
+ 
+ 修改一个表 让其可以分区（注意分区的键必须是主键）
+ 将分区键设为主键
+alter table tb_ship_p2 drop primary key,add primary key (id,createTime);
+alter table tb_ship_p2 partition by hash(year(createTime))
+partitions 6;//分区的数量为6个
+----------------------------------------------------------------------------
+
+删除分区:
+alter table emp drop partition p1;
+不可以删除hash或者key分区。
+一次性删除多个分区，alter table emp drop partition p1,p2;
+
+增加分区:
+alter table emp add partition (partition p3 values less than (4000));
+alter table empl add partition (partition p3 values in (40));

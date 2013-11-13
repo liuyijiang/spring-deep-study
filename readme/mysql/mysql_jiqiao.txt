@@ -1,0 +1,10 @@
+mysql技巧
+1#复制表数据
+ insert into 'A表名' select * from 'B表名';//前提是先建好A表
+ create table 'A表名' select * from 'B表名';
+ create table like 'B表名' //复制B表结构
+2#alter操作
+alter table tb_ship_p1 drop primary key,add primary key (id,createTime);//删除主键 
+
+3#show 命令
+show create table '表名' 查看表的创建sql

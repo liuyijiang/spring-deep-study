@@ -1,0 +1,9 @@
+http://zhangshenjia.com/it/mongodb-js/
+
+mongodb中js脚本
+导入脚本 load("xxx.js");
+选择数据库
+var x = new Mongo('192.168.30.1:18000');
+var mydb = x.getDB('mydb');
+var mydb = connect('192.168.30.1:18000/mydb');//你可以用conncet命令重新发起连接：
+db = db.getSiblingDB("otherdb") //same as use otherdb

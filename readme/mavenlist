@@ -1,0 +1,87 @@
+
+<dependency> 
+  <groupId>ati</groupId> 
+  <artifactId>activemq-core</artifactId> 
+  <version>5.7.0</version> 
+</dependency>
+
+<dependency> 
+<groupId>ati</groupId> 
+<artifactId>activemq-pool</artifactId> 
+<version>5.7.0</version> 
+</dependency>
+
+<dependency> <groupId>ati</groupId> <artifactId>aopalliance</artifactId> <version>1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>aspectj</artifactId> <version>1.7.3</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>aspectjweaver</artifactId> <version>1.7.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>cglib-nodep</artifactId> <version>2.1_3</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons</artifactId> <version>beanutils</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-codec</artifactId> <version>1.6</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-codec</artifactId> <version>1.8</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-collections</artifactId> <version>3.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-fileupload</artifactId> <version>1.2.2</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-io</artifactId> <version>2.0.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-lang</artifactId> <version>2.4</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-lang3</artifactId> <version>3.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-logging</artifactId> <version>1.1.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>commons-pool</artifactId> <version>1.6</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>dom4j</artifactId> <version>1.6.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>ejb3</artifactId> <version>persistence</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>ezmorph</artifactId> <version>1.0.4</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>fastjson</artifactId> <version>1.1.9</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>fluent-hc</artifactId> <version>4.2.5</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>geronimo-j2ee-management_1.1_spec</artifactId> <version>1.0.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>geronimo-jms_1.1_spec</artifactId> <version>1.1.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>hibernate</artifactId> <version>annotations</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>hibernate-commons</artifactId> <version>annotations</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>hibernate3</artifactId> <version>1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>httpclient</artifactId> <version>4.2.5</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>httpclient-cache</artifactId> <version>4.2.5</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>httpcore</artifactId> <version>4.2.4</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>httpmime</artifactId> <version>4.2.5</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jackson-core-asl</artifactId> <version>1.5.3</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jackson-mapper-asl</artifactId> <version>1.5.3</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>javaee</artifactId> <version>1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>javassist</artifactId> <version>3.11.0.GA</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jstl-api</artifactId> <version>1.2</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jstl-impl</artifactId> <version>1.2</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jstl</artifactId> <version>1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jta</artifactId> <version>1.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>jxl</artifactId> <version>1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>logback-classic</artifactId> <version>0.9.24</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>logback-core</artifactId> <version>0.9.24</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>mybatis</artifactId> <version>3.0.5</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>mybatis-spring</artifactId> <version>1.0.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>mysql-connector-java-5.0.8</artifactId> <version>bin</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.aop</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.asm</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.aspects</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.beans</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.context</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.context.support</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.core</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.expression</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.jdbc</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.jms</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.orm</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.oxm</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.transaction</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.web</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.web.portlet</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>org.springframework.web.servlet</artifactId> <version>3.1.0.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>servlet</artifactId> <version>api</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>slf4j-api</artifactId> <version>1.6.1</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-aop</artifactId> <version>1.2.6</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-acl</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-aspects</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-cas</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-config</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-core</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-crypto</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-ldap</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-openid</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-remoting</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-taglibs</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spring-security-web</artifactId> <version>3.1.4.RELEASE</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>spymemcached</artifactId> <version>2.8.4</version> </dependency>
+<dependency> <groupId>ati</groupId> <artifactId>standard</artifactId> <version>1</version> </dependency>
