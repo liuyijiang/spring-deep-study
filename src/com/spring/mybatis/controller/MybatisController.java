@@ -40,9 +40,13 @@ public class MybatisController {
 	public String mybsave(@PathVariable("id") int id){
 		Ship ship = new Ship();
 		String str = (new Date()).toString();
-		ship.setId(id);
 		ship.setName("liuiyijiang"+str);
-		service.saveShip(ship);
+		if(id != 0){
+			ship.setId(id);
+			service.saveShip(ship);
+		}else{
+			service.saveShipAuto(ship);
+		}
 		return str;
 	}
 	
@@ -57,6 +61,20 @@ public class MybatisController {
 			sb.append("no ship");
 		}
 		return sb.toString();
+	}
+	
+	@RequestMapping(value = "/myPartition", method = RequestMethod.GET)
+	@ResponseBody
+	public String myPartition(){
+		Thread d = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				service.createbigData();
+			}
+		});
+		d.start();
+		return "ok";
 	}
 	
 }

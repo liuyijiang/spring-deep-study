@@ -9,4 +9,6 @@ public interface ShipMapper {
 	public void insertShip(Ship ship);
 	
 	public void updateShip(int id);
+	
+	public void insertShipAuto(Ship ship);
 }

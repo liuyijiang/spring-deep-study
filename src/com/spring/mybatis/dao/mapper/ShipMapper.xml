@@ -7,6 +7,10 @@
     <insert id="insertShip" parameterType="Ship" useGeneratedKeys="true" keyProperty="id">
         insert into tb_ship(id,name) values(#{id},#{name})
     </insert>
+    
+    <insert id="insertShipAuto" parameterType="Ship" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_ship(name,createTime) values(#{name},#{create})
+    </insert>
 <!--  查询单条记录  -->
     <select id="selectShip" parameterType="int" resultType="Ship">
        select * from tb_ship where id = #{id}

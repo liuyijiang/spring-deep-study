@@ -1,6 +1,7 @@
 package com.spring.mybatis.service.impl;
 
-import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import com.spring.mybatis.service.MybitasService;
 @Service
 public class MybitasServiceImpl implements MybitasService{
    
-	//@Autowired
+	@Autowired
     private ShipMapper shipMapper;
 	
     public Ship selectShip(int id){
@@ -41,6 +42,31 @@ public class MybitasServiceImpl implements MybitasService{
 		return shipMapper;
 	}
 
+	@Override
+	public void saveShipAuto(Ship ship) {
+		shipMapper.insertShipAuto(ship);
+		
+	}
+
+	@Override
+	public void createbigData() {
+		Calendar calendar=Calendar.getInstance();   
+		for(int i=0;i<100000;i++){
+			Date tody = new Date();
+			calendar.setTime(tody); 
+			calendar.add(Calendar.DAY_OF_MONTH,i);
+			Ship ship = new Ship();
+			ship.setCreate(calendar.getTime());
+			ship.setName("ship number"+i);
+			shipMapper.insertShipAuto(ship);
+			System.out.println("-------------"+ i +"-------------");
+		}
+	}
+   
+//	public static void main(String[] args) {
+//		
+//	}
+	
 //	@Resource  
 //	public void setShipMapper(ShipMapper shipMapper) {
 //		this.shipMapper = shipMapper;
