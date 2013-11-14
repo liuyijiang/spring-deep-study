@@ -59,4 +59,6 @@
     <!-- spring jdbctemplate -->
 <!--     <import resource="applicationJdbcTemplateContext.xml"/> -->
     
+<!--     <import resource="applicationAopContext.xml"/>  -->
+    
 </beans>
