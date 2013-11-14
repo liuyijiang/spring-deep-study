@@ -29,10 +29,15 @@ public class MybitasServiceImpl implements MybitasService{
 
 	@Transactional
     public void updateShip(Ship ship){
+		try{
     		shipMapper.updateShip(ship.getId());
         	//shipMapper.insertShip(ship);
         	int i = 0 / 0;
         	System.out.println(i);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new RuntimeException("error sql");
+		}
     }
     
     
