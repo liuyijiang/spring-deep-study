@@ -1,0 +1,50 @@
+http://blog.csdn.net/daihui05/article/details/7513419
+http://hi.baidu.com/cstsxazrsrdjmur/item/6bee22aca8a1f1278819d334
+{
+
+ serve 层不加try catch 加了要new runtimeexception
+
+}
+
+
+
+在目前使用的现有框架当中，利用spring的AOP机制来控制事务处理是目前最流行的一种控制事务的方式。
+
+但是我们在某种使用场合的过程中，为什么有时事务处理老是不起作用呢？这里,为您道出原因之一,
+
+首先请看一段话
+
+Spring的事务实现采用基于AOP的拦截器来实现，如果没有在事务配置的时候注明回滚的checked exception，那么只有在发生了unchecked exception的时候，才会进行事务回滚。
+
+有必要先解释一下checked exception与unchecked exception：
+
+先看看EXCEPTION在JDK文档当中的结构
+                  java.lang.RuntimeException 而Unchecked exception: 这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们是特殊的。Exception是作为checked Exception 出现的。所以，除了Error与RuntimeException，其他剩下的异常都是你需要关心的，而这些异常类统称为Checked Exception
+
+有了以上的基础，看看我们框架当中的事务属性
+
+<property name="transactionAttributes">
+
+                       <props>
+
+                              <prop key="get*">PROPAGATION_REQUIRED,readOnly </prop>
+
+                              <prop key="save*">PROPAGATION_REQUIRED </prop>
+
+                              <prop key="delete*">PROPAGATION_REQUIRED</prop>
+
+                              <prop key="update*">PROPAGATION_REQUIRED </prop>
+
+                       </props>
+
+</property>
+
+此处，我们没有指定任何异常，那么它目前默认处理的就是unchecked exception了，再结合我们自身每个项目的模块，在我们的每个项目当中几乎都定义了自己的异常，这些异常都是继承自Exception，很不幸的是，我们继承的Exception包括自己定义的异常，都是checked exception。
+
+所以，在我们的事务处理机制当中，事务不管用了。
+
+解决办法有2个：
+
+1，在事务属性后面加上需要回滚的checked exception。比如<prop key="save*">PROPAGATION_REQUIRED,-XXXXException</prop>(注意那个"-",对应的是"+")
+
+2, 不改配置文件，将需要事务回滚的异常继承自unchecked exception类，也就是RuntimeException。

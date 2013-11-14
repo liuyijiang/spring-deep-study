@@ -1,0 +1,7 @@
+spring实现aop
+方式{
+1MethodInterceptor
+2切面编程 http://docs.huihoo.com/spring/2.5.x/zh-cn/aop.html
+3ProxyFactoryBean
+
+}
