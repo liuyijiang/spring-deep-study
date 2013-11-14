@@ -65,6 +65,12 @@ public class MybitasServiceImpl implements MybitasService{
 			System.out.println("-------------"+ i +"-------------");
 		}
 	}
+
+	@Override
+	public Ship saveUserEntity(Ship ship) {
+		ship.setId(2);
+		return ship;
+	}
    
 //	public static void main(String[] args) {
 //		

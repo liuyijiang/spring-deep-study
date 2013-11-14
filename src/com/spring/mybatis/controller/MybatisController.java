@@ -21,6 +21,10 @@ public class MybatisController {
 	
 	@RequestMapping(value = "/mybindex", method = RequestMethod.GET)
 	public ModelAndView bindex(){
+		Ship ship = new Ship();
+		ship.setName("m1212");
+		ship.setCreate(new Date());
+		service.saveUserEntity(ship);
 		return new ModelAndView("mybindex.jsp");
 	}
 	
