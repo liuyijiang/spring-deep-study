@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.model.Ship;
 import com.spring.mybatis.dao.mapper.ShipMapper;
@@ -26,15 +27,12 @@ public class MybitasServiceImpl implements MybitasService{
 		
 	}
 
+	@Transactional
     public void updateShip(Ship ship){
-    	try{
-    		shipMapper.updateShip(1);
+    		shipMapper.updateShip(ship.getId());
         	//shipMapper.insertShip(ship);
         	int i = 0 / 0;
         	System.out.println(i);
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
     }
     
     
