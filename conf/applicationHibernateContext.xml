@@ -28,7 +28,6 @@
 		 <property name="mappingResources"> 
 		     <list> 
 		         <value>com/spring/hibernate/entity/Ship.hbm.xml</value> 
-		         <value>com/spring/hibernate/entity/Tank.hbm.xml</value> 
 		     </list> 
         </property> 
 		<property name="hibernateProperties">

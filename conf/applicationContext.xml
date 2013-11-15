@@ -44,6 +44,7 @@
  <!--mq集群 <import resource="applicationActiveMqContext_master_slave.xml"/> -->  
    
    <!-- spring aop自定义注解配置 -->
+   <import resource="applicationHibernateContext.xml"/> 
 <!-- <import resource="applicationHibernateContext.xml"/> -->
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
 
