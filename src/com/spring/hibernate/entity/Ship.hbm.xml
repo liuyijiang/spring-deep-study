@@ -4,10 +4,11 @@
           "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
- <class name="com.spring.hibernate.entity.Ship" table="tb_ship">
+ <class name="com.spring.hibernate.entity.Ship" table="tb_ship_cop">
    <id name="id" column="id" type="int">
       <generator class="increment" />     
    </id>
   <property name="name" column="name" type="string"/>
+  <property name="create" column="createTime" type="date"/>
  </class>
 </hibernate-mapping>
