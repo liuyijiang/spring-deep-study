@@ -8,3 +8,35 @@ alter table tb_ship_p1 drop primary key,add primary key (id,createTime);//删除
 
 3#show 命令
 show create table '表名' 查看表的创建sql
+--
+查看sql执行时间
+set profiling = 1;//开启profile
+sql...//执行
+show profiles;
+--
+#########索引#############
+mysql索引类型 
+SHOW INDEX FROM 表名 （查看表的索引）
+1#普通索引
+最基本的索引
+ALTER TABLE 表名 ADD INDEX 索引名称 ON (字段名)
+CREATE INDEX 索引名称 ON 表名 (字段名)  
+DROP INDEX 索引名称  ON 表名; 
+
+2#唯一索引
+它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：
+CREATE UNIQUE INDEX 索引名称 ON 表名 (字段名)
+
+3#
+
+4#组合索引
+ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
+注意 索引字段可以加长度
+    MySQL组合索引有“最左前缀” 这个概念
+    MySQL只对<，<=，=，>，>=，BETWEEN，IN，以及某些时候的LIKE才会使用索引
+    
+###########################
+INSERT IGNORE INTO
+merge into(oracle)
+   
+    
