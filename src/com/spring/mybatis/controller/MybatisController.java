@@ -23,7 +23,7 @@ public class MybatisController {
 	@RequestMapping(value = "/call/{page}", method = RequestMethod.GET)
 	@ResponseBody
 	public String call(@PathVariable("page") int id){
-		service.call(id);
+		service.call(id);//test
 		return "ok";
 	}
 	

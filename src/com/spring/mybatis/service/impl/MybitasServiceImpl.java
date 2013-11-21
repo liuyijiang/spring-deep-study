@@ -81,7 +81,7 @@ public class MybitasServiceImpl implements MybitasService{
 		//calltest1();
 		//有in参数返回数字的call -- test ok
 		//calltest2();
-		//返回集合的存储过程call
+		//返回集合的存储过程call -- test ok
 		calltest3();
 	}
    
