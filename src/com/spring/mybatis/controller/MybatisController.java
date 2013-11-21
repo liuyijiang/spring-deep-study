@@ -19,6 +19,14 @@ public class MybatisController {
 	@Autowired
     private MybitasService service;	
 	
+	//mybatis掉存储过程
+	@RequestMapping(value = "/call/{page}", method = RequestMethod.GET)
+	@ResponseBody
+	public String call(@PathVariable("page") int id){
+		service.call(id);
+		return "ok";
+	}
+	
 	@RequestMapping(value = "/mybindex", method = RequestMethod.GET)
 	public ModelAndView bindex(){
 		Ship ship = new Ship();

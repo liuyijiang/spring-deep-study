@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mybatis.dao.mapper.ShipMapper">
+   
+    <resultMap type="com.spring.mybatis.dao.mapper.Bean" id="bmap">
+     <id property="id" column="id" />
+     <result property="info" column="info" />
+     <result property="socre" column="socre" />
+     <result property="time" column="time" />
+     <result property="itemId" column="itemId" />
+    </resultMap>
+
 <!--  新增记录  -->
     <insert id="insertShip" parameterType="Ship" useGeneratedKeys="true" keyProperty="id">
         insert into tb_ship(id,name) values(#{id},#{name})
@@ -19,6 +28,25 @@
     <update id="updateShip"  parameterType="int">
         update tb_ship set name = "f45113" where id = #{id}
     </update>
+    
+    <!-- 调用存储过程的一个demo 存储过程只有out参数 mysql -->
+    <select id="callssd" statementType="CALLABLE" parameterType="java.util.Map"   
+       resultType="java.util.Map">  
+      { CALL ssd(#{result,mode=OUT,jdbcType=VARCHAR}) }   
+    </select> 
+    
+    <!-- 调用存储过程的一个demo 存储过程有in out参数 mysql -->
+    <select id="callss" statementType="CALLABLE" parameterType="java.util.Map"   
+       resultType="java.util.Map">  
+      { CALL ss(#{a},#{b},#{c,mode=OUT,jdbcType=INTEGER}) }   
+    </select>
+    
+    <select id="callshow" statementType="CALLABLE" parameterType="java.util.Map"   
+       resultMap="bmap">  
+      { CALL showdata(#{pag}) }   
+    </select>
+    
+    
 <!--  查询所有记录  -->
 <!--     <select id="selectAll" resultType="Blog"> -->
 <!--         select * from t_blog -->

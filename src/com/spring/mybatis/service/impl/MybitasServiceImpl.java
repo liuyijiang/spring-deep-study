@@ -2,12 +2,15 @@ package com.spring.mybatis.service.impl;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.model.Ship;
+import com.spring.mybatis.dao.mapper.Bean;
 import com.spring.mybatis.dao.mapper.ShipMapper;
 import com.spring.mybatis.service.MybitasService;
 
@@ -71,7 +74,47 @@ public class MybitasServiceImpl implements MybitasService{
 		ship.setId(2);
 		return ship;
 	}
+
+	@Override
+	public void call(int page) {
+		//无in参数返回字符串的call --test ok
+		//calltest1();
+		//有in参数返回数字的call -- test ok
+		//calltest2();
+		//返回集合的存储过程call
+		calltest3();
+	}
    
+	private void calltest1(){
+		 HashMap params = new HashMap();   
+		 params.put("result", "");   
+		 shipMapper.callssd(params);
+		 String result = (String) params.get("result"); 
+		 System.out.println(result);
+	}
+	
+	//mysql 不需要 out 参数
+	private void calltest2(){
+		 HashMap<String,Object> params = new HashMap<String,Object>();   
+		 params.put("b", 1);  
+		 params.put("a", 4);
+		 params.put("c", null);
+		 shipMapper.callss(params);
+		 Integer result = (Integer) params.get("c"); //这里遇到一个问题 返回值是jdbcType=INTEGER 接口返回值要是INTEGER 不能是int
+		 System.out.println(result);
+	}
+	
+	private void calltest3(){
+		 HashMap<String,Object> params = new HashMap<String,Object>();   
+		 params.put("pag", 0); 
+		 List<Bean> list = shipMapper.callshow(params);
+		 if(list != null){
+			 for (Bean bean : list){
+				 System.out.println(bean.getInfo() + " -  " + bean.getSocre());
+			 }
+		 }  
+	}
+	
 //	public static void main(String[] args) {
 //		
 //	}

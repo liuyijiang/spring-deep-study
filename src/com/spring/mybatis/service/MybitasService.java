@@ -15,4 +15,6 @@ public interface MybitasService {
     public void createbigData();
     
     public Ship saveUserEntity(Ship ship);
+    
+    public void call(int page);
 }
