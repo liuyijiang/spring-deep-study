@@ -8,13 +8,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 import com.alibaba.fastjson.JSON;
 import com.spring.restfull.service.request.ResendRequest;
@@ -27,8 +27,25 @@ import com.spring.restfull.service.vo.UserVO;
 @Controller
 public class BootstarpController {
 
+	//<util:properties id="webProperties" location="classpath:/configure.properties"/>
+//	@Value("#{webProperties['test.value.str']}")  //
+//	private String value;
+//	
+//	@Value("#{webProperties['test.value.int']}") 
+//	private int num;
+	
+	//<context:property-placeholder location="classpath:/configure.properties"/>
+	//必须放在spring-servlet.xml 配置文件中才能被加载
+	@Value("${test.value.str}")   //
+	private String value;
+	
+	@Value("${test.value.int}")
+	private int num;
+	
 	@RequestMapping(value = "/bindex", method = RequestMethod.GET)
 	public ModelAndView bindex(){
+		System.out.println(value);
+		System.out.println(num);
 		return new ModelAndView("bindex.jsp");
 	}
 	
