@@ -4,3 +4,5 @@
 
 1year();获得日期的年份
 select year(createTime) from tb_ship where id =10; 
+
+2 @xx 有了@ 可以代替 declare xx integer;
