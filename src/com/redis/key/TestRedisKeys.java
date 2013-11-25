@@ -37,7 +37,7 @@ public class TestRedisKeys {
 	private Jedis jedis = null;
 
 	public TestRedisKeys() {
-		jedis = new Jedis("192.168.2.102", 6379);
+		jedis = new Jedis("192.168.2.153", 6379);
 //		System.out.println("db1:" + jedis.exists("test"));
 //		jedis.select(1); // 切换数据库
 //		System.out.println("db1:" + jedis.exists("test"));
