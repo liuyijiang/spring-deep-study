@@ -1,4 +1,9 @@
 mysql技巧
+最好在安装完成后将字符集换成utf-8
+my.cnf my.ini
+[mysqld]
+character_set_server=utf-8
+
 1#复制表数据
  insert into 'A表名' select * from 'B表名';//前提是先建好A表
  create table 'A表名' select * from 'B表名';
@@ -38,5 +43,10 @@ ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
 ###########################
 INSERT IGNORE INTO
 merge into(oracle)
-   
+
+########################################
+创建用户
+1查看 当前有那些用户 select host,user from mysql.user;  
+2create user anan identified by '123';anan表示你要建立的用户名，后面的123表示密码，建立的用户可以在任何地方登陆。
+3create user tt@localhost identified by '123'用户只能在localhost登录
     
