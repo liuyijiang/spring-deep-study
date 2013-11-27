@@ -4,13 +4,17 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Table;
 
 public class BaseTest {
-
+   
+	public <T extends Base> void get(T t)  
+	{  
+	    
+	} 
+	
 	/**
 	 * @param args
 	 */
