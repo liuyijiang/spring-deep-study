@@ -49,4 +49,7 @@ merge into(oracle)
 1查看 当前有那些用户 select host,user from mysql.user;  
 2create user anan identified by '123';anan表示你要建立的用户名，后面的123表示密码，建立的用户可以在任何地方登陆。
 3create user tt@localhost identified by '123'用户只能在localhost登录
+
+##########################
+mysql>? contents(查看mysql提供的功能)
     

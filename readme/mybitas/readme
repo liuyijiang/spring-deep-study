@@ -6,3 +6,22 @@ mybatis-spring-1.2.1-SNAPSHOT.jar
 http://mybatis.github.io/mybatis-3/zh/sqlmap-xml.html
 
 ####################配置###########################
+
+
+根据parametertype的不同，like后面的使用方式不一。
+1，当 parametertype后面是实体类时
+sql语句中的like部分如下：
+Java代码 复制代码 收藏代码
+
+    <!-- name为实体类中的属性 -->
+    like '%${name}%'
+
+
+2，当parametertype=“String”时
+sql语句中的like部分如下：
+Java代码 复制代码 收藏代码
+
+    <!-- nameStr为传入的String参数 -->
+    like '%'||#{nameStr}||'%'
+
+
