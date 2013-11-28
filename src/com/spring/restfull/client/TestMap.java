@@ -7,7 +7,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import com.spring.restfull.client.baidumap.BaiduMapUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 public class TestMap {
   
@@ -23,9 +25,14 @@ public class TestMap {
 				String value = EntityUtils.toString(entity);
 				System.out.println(value);
 				if(value != null){
-					BaiduMapUtil util = new BaiduMapUtil();
-					String address = util.getBaiduFormattedAddress(value);
-					System.out.println(address);
+					JSONObject obj = JSON.parseObject(value);
+					System.out.println(obj);
+					JSONArray a = obj.getJSONArray("results");
+					String str = a.getJSONObject(0).getString("formatted_address");
+//					BaiduMapUtil util = new BaiduMapUtil();
+//					String address = util.getBaiduFormattedAddress(value);
+//					System.out.println(address);
+					System.out.println(1);
 				}
 			}
 			httpget.abort();
@@ -38,7 +45,7 @@ public class TestMap {
 	
 	public static void main(String[] args) {
 		TestMap t = new TestMap();
-		t.getDataWithOutParm("http://api.map.baidu.com/geocoder/v2/?ak=25b649ac2a75ac31477bfe806d4912e1&callback=renderReverse&location=38.983424,96.322987&output=json&pois=0");
+		t.getDataWithOutParm("http://maps.googleapis.com/maps/api/geocode/json?&language=zh-cn&latlng=30.54066172,104.0695318&sensor=true");
 	}
 	
 }

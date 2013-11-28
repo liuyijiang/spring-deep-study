@@ -13,7 +13,8 @@ public class BaseTest {
 	public <T extends Base> void get(T t)  
 	{  
 	    
-	} 
+	}
+	
 	
 	/**
 	 * @param args
