@@ -1,77 +1,45 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!-- <configuration> -->
-
-<!--     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
-<!--         <encoding>UTF-8</encoding> -->
-<!--         <file>D:\log\hs-user-error.log</file> -->
-<!--         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> -->
-<!--             <fileNamePattern>D:\log\hs-user-error.%d{yyyy-MM-dd}.log.gz</fileNamePattern> -->
-<!--         </rollingPolicy> -->
-<!--         <encoder> -->
-<!--             <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern> -->
-<!--         </encoder> -->
-<!--     </appender> -->
-
-<!--     <root level="ALL"> -->
-<!--         <appender-ref ref="info"/> -->
-<!--         <appender-ref ref="trace"/> -->
-<!--     </root> -->
-<!-- </configuration> -->
-
-<configuration>   
-   
-       <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-<!-- 设置级别 -->
-<!--         <filter class="ch.qos.logback.classic.filter.ThresholdFilter"> -->
-<!--             <level>INFO</level> -->
-<!--         </filter> -->
-        <encoding>UTF-8</encoding>
-        <file>D:\log\hs-user.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>D:\log\hs-user.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-<!--             <maxHistory>30</maxHistory>   -->
-        </rollingPolicy>
-        
-        <!--配置2 按照固定窗口模式生成日志文件，当文件大于20MB时，生成新的日志文件。窗口大小是1到3，当保存了3个归档文件后，将覆盖最早的日志 -->
-<!--     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">    -->
-<!--       <fileNamePattern>tests.%i.log.zip</fileNamePattern>    -->
-<!--       <minIndex>1</minIndex>    -->
-<!--       <maxIndex>3</maxIndex>    -->
-<!--     </rollingPolicy>    -->
-   
-<!--     <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">    -->
-<!--       <maxFileSize>5MB</maxFileSize>    -->
-<!--     </triggeringPolicy> -->
-         <!-- end配置2 -->
-        <encoder>
-            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!-- Reference Manual http://logback.qos.ch/manual/index.html -->
+ 
+<configuration scan="true">
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender"> 
+        <encoder charset="UTF-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %c.%M\(%F:%L\) -  %msg%n</pattern>
         </encoder>
-          
-        
+    </appender> 
+ 
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 可让每天产生一个日志文件，最多 10 个，自动回滚 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/crawler-%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+ 
+        <encoder charset="UTF-8">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{30} %L - %msg%n</pattern>
+        </encoder>
     </appender>
-   
-   <!-- 控制台打印 -->
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">   
-    <!-- encoder 默认配置为PatternLayoutEncoder -->   
-    <encoder>   
-      <pattern>[%relative]%-5d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>   
-    </encoder>   
-  </appender>   
-   
-   <!-- 这里level 设为debug 则程序中logger.debug 以后的都可以打印出来 -->
-  <!-- 参照TestSlf4.class -->
-  <root level="DEBUG">   
-    <appender-ref ref="info" />           
-    <appender-ref ref="STDOUT" />   
-  </root>     
-  
-  <!-- 使用logger来设置个别类的日志级别 如果有两个同样的类 级别以最后的一个为主 -->
-<!--    <logger name="com.run.TestSlf4J" level="DEBUG"> -->
-<!--       <appender-ref ref="STDOUT" />  -->
-<!--    </logger>  -->
-   
-<!--     <logger name="com.run.TestSlf4J" level="INFO"> -->
-<!--       <appender-ref ref="info" />  -->
-<!--    </logger>  -->
-     
- </configuration> 
+ 
+    <!-- 输出到控制台和文件，可定义更多的 Appender -->
+    <!--
+    <root level="trace">
+    <root level="trace">
+        <appender-ref ref="stdout" />
+    </root>
+ 	-->
+ 	
+    
+    <root level="trace">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="RollingFile"/>
+    </root>
+    
+ 
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+ <!--
+    <logger name="org.springframework" level="debug"/>
+    <logger name="com.opensymphony" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+-->
+
+</configuration>
