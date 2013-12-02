@@ -9,6 +9,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.spring.restfull.service.vo.UserVO;
 
 public class TestOpenApi {
@@ -21,19 +22,24 @@ private HttpClient httpclient = new DefaultHttpClient();
 	public void getDataWithParm(String url,Data data) {
 		try {
 			//JSONObject jb = JSONObject.fromObject(req);
-			String str = JSON.toJSONString(data);
-			StringEntity s = new StringEntity(str);
+			//String str = JSON.toJSONString(data);
+			JSONObject param = new JSONObject(); 
+			param.put("source", "3361655926");
+			param.put("access_token", "lllll");
+			param.put("status", "2.00rLjHlBsQKVfD741afbc2cb0DgosK");
+			StringEntity s = new StringEntity(param.toString());
 			s.setContentEncoding("UTF-8");
 			s.setContentType("application/json");
 			HttpPost httppost = new HttpPost(url);
 			httppost.setEntity(s);
-			httppost.setHeader("Accept", "application/json");
-			httppost.setHeader("Content-Type", "application/json");
+//			httppost.setHeader("Accept", "application/json");
+//			httppost.setHeader("Content-Type", "application/json");
 			System.out.println("executing request " + httppost.getURI() + " with parm");
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
 				String text = EntityUtils.toString(entity);
+				System.out.println(text);
 				UserVO vo = (UserVO)JSON.parseObject(text, UserVO.class);
 				System.out.println(vo.getId()+"**"+vo.getName());
 			}

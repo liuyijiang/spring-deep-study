@@ -19,13 +19,34 @@ public class TestExecutor {
 //		server.executeTask(task);
 //		}
 //		server.endServer();
-		ExecutorService executor = Executors.newCachedThreadPool();
-		//executor.
-		for(int i=0;i<5;i++){
-			executor.execute(new Run());
+//		ExecutorService executor = Executors.newCachedThreadPool();
+//		//executor.
+//		for(int i=0;i<5;i++){
+//			executor.execute(new Run());
+//		}
+//		//executor.s
+//		executor.shutdown();
+		ExecutorService e = Executors.newFixedThreadPool(1);
+		if(e.isShutdown()){
+			e.execute(new Runnable() {
+				
+				@Override
+				public void run() {
+					while(true){
+						try{
+							Thread.sleep(2000);
+							System.out.println(22);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+					
+				}
+			});
+		}else{
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
-		//executor.s
-		executor.shutdown();
+		e.
 		System.out.println("##############shutdwon#############");
 	}
 
