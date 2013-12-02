@@ -23,5 +23,20 @@ Java代码 复制代码 收藏代码
 
     <!-- nameStr为传入的String参数 -->
     like '%'||#{nameStr}||'%'
+    
+    
+    
+    insert into TB_LINK (URL, REFERER, PROCESSED_TIME, 
+      KEEP_TIME, ALLOW_DEEP, PROCESS_COUNT, 
+      LAST_CRAWLER_NAME, EXPIRATION_TIME, STATE, 
+      SOURCE_CRAWLER_NAME, SUB_LINK_COUNT, SUB_INFO_COUNT, 
+      FAIL_COUNT)  
+      <foreach collection="list" item="item" index="index" separator="union">
+       select #{item.url,jdbcType=VARCHAR}, #{item.referer,jdbcType=VARCHAR}, #{item.processedTime,jdbcType=DECIMAL}, 
+      #{item.keepTime,jdbcType=DECIMAL}, #{item.allowDeep,jdbcType=DECIMAL}, #{item.processCount,jdbcType=DECIMAL}, 
+      #{item.lastCrawlerName,jdbcType=VARCHAR}, #{item.expirationTime,jdbcType=DECIMAL}, #{item.state,jdbcType=DECIMAL}, 
+      #{item.sourceCrawlerName,jdbcType=VARCHAR}, #{item.subLinkCount,jdbcType=DECIMAL}, #{item.subInfoCount,jdbcType=DECIMAL}, 
+      #{item.failCount,jdbcType=DECIMAL} from dual
+      </foreach>
 
 
