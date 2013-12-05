@@ -1,6 +1,7 @@
 package com.spring.mybatis.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Ship;
+import com.model.TbHandler;
+import com.spring.mybatis.dao.mapper.ShipMapper;
+import com.spring.mybatis.handler.HandlerType;
 import com.spring.mybatis.service.MybitasService;
 
 @Controller
@@ -18,6 +22,42 @@ public class MybatisController {
 
 	@Autowired
     private MybitasService service;	
+	
+	@Autowired
+    private ShipMapper shipMapper;
+	
+	
+	@RequestMapping(value = "/handler", method = RequestMethod.GET)
+	@ResponseBody
+	public String handler(){
+		TbHandler tb = new TbHandler();
+		tb.setName("test4");
+		tb.setStats(HandlerType.ERROR);
+//		TbHandler tb2 = new TbHandler();
+//		tb.setName("test3");
+//		tb.setStats(HandlerType.SUCCESS);
+		try{
+		shipMapper.inserthander(tb);
+//		shipMapper.inserthander(tb2);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "ok";
+	}
+	
+	@RequestMapping(value = "/handler/find", method = RequestMethod.GET)
+	@ResponseBody
+	public String handlerfind(){
+		try{
+		   List<TbHandler> list = shipMapper.selectthander();
+		   for (TbHandler t:list) {
+			   System.out.println(t.getName()+" -- "+t.getStats());
+		   }
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "ok";
+	}
 	
 	//mybatis掉存储过程
 	@RequestMapping(value = "/call/{page}", method = RequestMethod.GET)

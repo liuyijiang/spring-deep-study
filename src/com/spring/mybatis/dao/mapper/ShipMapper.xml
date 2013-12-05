@@ -11,6 +11,19 @@
      <result property="time" column="time" />
      <result property="itemId" column="itemId" />
     </resultMap>
+    
+     <resultMap type="com.model.TbHandler" id="tb">
+	     <result property="name" column="name" />
+	     <result property="stats" column="stats" jdbcType="DECIMAL" typeHandler="com.spring.mybatis.handler.HandlerTypeHandler" />
+    </resultMap>
+
+    <insert id="inserthander" parameterType="com.model.TbHandler" >
+        insert into tb_handler(stats,name) values(#{stats,jdbcType=DECIMAL,typeHandler=com.spring.mybatis.handler.HandlerTypeHandler},#{name,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectthander" resultMap="tb">
+        select * from tb_handler;
+    </select>
 
 <!--  新增记录  -->
     <insert id="insertShip" parameterType="Ship" useGeneratedKeys="true" keyProperty="id">

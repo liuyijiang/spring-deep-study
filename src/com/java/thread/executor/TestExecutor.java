@@ -26,8 +26,11 @@ public class TestExecutor {
 //		}
 //		//executor.s
 //		executor.shutdown();
-		ExecutorService e = Executors.newFixedThreadPool(1);
-		if(e.isShutdown()){
+		ExecutorService e = (ExecutorService)Executors.newFixedThreadPool(1);
+		System.out.println(e.isShutdown());
+		System.out.println(e.isTerminated());
+	//	e.
+//		if(e.isShutdown()){
 			e.execute(new Runnable() {
 				
 				@Override
@@ -43,10 +46,12 @@ public class TestExecutor {
 					
 				}
 			});
-		}else{
-			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		}
-		e.
+			System.out.println("##############shutdwon#############");
+			System.out.println(e.isShutdown());
+			System.out.println(e.isTerminated());
+//		}else{
+//			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//		}
 		System.out.println("##############shutdwon#############");
 	}
 

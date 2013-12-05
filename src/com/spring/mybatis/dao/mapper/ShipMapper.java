@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.model.Ship;
+import com.model.TbHandler;
 
 public interface ShipMapper {
   
@@ -20,4 +21,8 @@ public interface ShipMapper {
 	public Integer callss(Map<String,Object> param);
 	
 	public List<Bean> callshow(Map<String,Object> param);
+	
+	public void inserthander(TbHandler tb);
+	
+	public List<TbHandler> selectthander();
 }
