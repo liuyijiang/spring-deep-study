@@ -40,7 +40,6 @@ public class BaseMessageServiceImpl implements BaseMessageService {
 		Mess mess = new Mess();
 		mess.setMess("完成copy 图片");
 		jmsTemplate.send(queuedestination,mess);
-		
 	}
 
 }

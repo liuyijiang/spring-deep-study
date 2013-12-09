@@ -59,6 +59,8 @@ public class TestFromClient {
 			MapMessage message = session.createMapMessage();
 			message.setString("mess", "from testTop");
 			producer.send(destination, message);
+			producer.send(destination, message, DeliveryMode.PERSISTENT, 9, 0);//9是优先级
+		//	producer.se
 			session.commit();
 		}
 	
