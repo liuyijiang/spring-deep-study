@@ -116,5 +116,66 @@ Date.prototype.Format = function (fmt) { //author: meizz
 </script>
 <button id="ss2" onclick="t()">111ss</button>
 <p><input id="cc" /></p>
+<hr />
+<p>prototype</p>
+<p>
+可以在类型上使用proptotype来为类型添加行为。这些行为只能在类型的实例上体现。
+JS中允许的类型有Array, Boolean, Date, Enumerator, Error, Function, Number, Object, RegExp, String
+<p>
+<p id="mess"><p>
+<button onclick="test1()">test1</button>
+<button onclick="test2()">test2</button>
+<script type="text/javascript">
+Boolean.prototype.show = function (str){
+	alert(str);
+};
+
+function test1(){
+	var b = new Boolean();
+	b.show('liuyijiang');
+	ajaxcall();
+}
+
+function test2(){
+	var book = new Books('av',23);
+	var str = book.showString();
+	alert(str);
+	book.showAoth();
+}
+
+function Books(name,price){
+	this.name = name;
+	this.price = price;
+};
+
+Books.prototype.showString = function(){
+	return this.name + this.price;
+};
+
+Books.prototype.showAoth = function(){
+	 $.ajax({
+	   		url : "http://localhost:8080/springdeepstudy/bajaxget",
+	   		type : "POST",
+	   		cache : false,
+	   		async : false,
+	   		success : function(item) {
+	   			$("#mess").html(item.name);
+	   		}
+	   }); 
+};
+
+function ajaxcall(){
+   $.ajax({
+   		url : "http://localhost:8080/springdeepstudy/bajaxget",
+   		type : "POST",
+   		cache : false,
+   		async : false,
+   		success : function(item) {
+   			$("#mess").html(item.name);
+   		}
+   }); 
+}
+
+</script>
 </body>
 </html>
