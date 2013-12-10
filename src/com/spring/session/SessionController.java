@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.portlet.ModelAndView;
 
+import com.java.base.Sta;
+
 /**
  * 使用cokie来做分布式集群
  * @author Administrator
@@ -39,6 +41,7 @@ public class SessionController {
 	
 	@RequestMapping(value = "/cookie/session", method = RequestMethod.GET)
 	public ModelAndView session(){
+		Sta.tt();
 		System.out.println(sessionContext.toString());
 		if(sessionContext.getSession() != null)
 		System.out.println(sessionContext.getSession().toString());
