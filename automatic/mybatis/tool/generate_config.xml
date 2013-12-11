@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="other\lib\jtds-1.2.2.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<plugin type="com.xf.generate.MyPlus" />
+
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.1.213:1521/ORCL"
+			userId="HLWQKTEST"
+			password="karakal">
+		</jdbcConnection>
+
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<javaModelGenerator targetPackage="com.karakal.internetMusic.crawler.model" targetProject="automatic">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.karakal.internetMusic.crawler.dao"  targetProject="automatic">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.karakal.internetMusic.crawler.dao"  targetProject="automatic">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		
+		
+		<table domainObjectName="Song" tableName="TB_SONG" >
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>
+		
+		<table domainObjectName="SongBaidu" tableName="tb_song_baidu" >
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>			
+		<table domainObjectName="SongSingerMapBaidu" tableName="tb_song_singer_map_baidu" />
+		<table domainObjectName="SongAlbumMapBaidu" tableName="tb_song_album_map_baidu" />
+		<table domainObjectName="SingerBaidu" tableName="tb_singer_baidu" />
+		<table domainObjectName="AlbumBaidu" tableName="tb_album_baidu" />
+
+		<table domainObjectName="SongQq" tableName="tb_song_qq">
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>
+		<table domainObjectName="AlbumQq" tableName="tb_album_qq" >
+			 <columnOverride column="score" javaType="java.lang.Double" />
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>
+			
+		<table domainObjectName="SingerQq" tableName="tb_singer_qq">
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>
+
+		<table domainObjectName="Link" tableName="tb_link">
+			<columnOverride column="state" 
+				javaType="com.karakal.internetMusic.ResourceState" 
+				typeHandler="com.karakal.internetMusic.ResourceState$Handler"/>
+		</table>
+	</context>
+
+</generatorConfiguration>
+
