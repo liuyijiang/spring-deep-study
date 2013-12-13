@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://server.product.nbc.sitech.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax23="http://dalbum_child.model.product.nbc.sitech.com/xsd" xmlns:ax21="http://model.product.nbc.sitech.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://server.product.nbc.sitech.com">
+    <wsdl:documentation>productService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dalbum_child.model.product.nbc.sitech.com/xsd">
+            <xs:complexType name="ContentInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="contentID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MetadataInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="chord" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmpUrl" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fileType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="isGet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="mimeType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="size" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="terminalList" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ParamInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="contentID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paramDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paramName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paramType" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.product.nbc.sitech.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://server.product.nbc.sitech.com">
+            <xs:import namespace="http://model.product.nbc.sitech.com/xsd"/>
+            <xs:element name="syncWirelessProduct">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncWirelessProductEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncWirelessProductResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncTags">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncTagsEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncTagsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncTagTemplate">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncTagTemplateEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncTagTemplateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncProduct">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncProductEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncProductResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncMaterial">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncMaterialEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncMaterialResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCrbtProduct">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncCrbtProductEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCrbtProductResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCrbtDeployResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncCrbtDeployResultEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCrbtDeployResultResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCatalogInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:SyncCatalogInfoEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="syncCatalogInfoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deployeDAlbum">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="event" nillable="true" type="ax21:DAlbumInfoEvt"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deployeDAlbumResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:ax24="http://dalbum_child.model.product.nbc.sitech.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.product.nbc.sitech.com/xsd">
+            <xs:import namespace="http://dalbum_child.model.product.nbc.sitech.com/xsd"/>
+            <xs:complexType name="SyncWirelessProductEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="albumInfo" nillable="true" type="ax21:AlbumInfo"/>
+                    <xs:element minOccurs="0" name="cmsAlbum" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmsSinger" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="drmType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="invalidateDate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="metadataSet" nillable="true" type="ax21:MetadataInfo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="paramSet" nillable="true" type="ax21:ParamInfo"/>
+                    <xs:element minOccurs="0" name="price" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="property" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="releaseType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="securityID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validateDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AlbumInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="albumID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MetadataInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="chord" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmpUrl" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fileType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="isGet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="mimeType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="size" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="terminalList" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ParamInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="paramName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paramValue" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="returnCode" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncTagsEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="objectCount" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="objectTags" nillable="true" type="ax21:ObjectTags"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ObjectTags">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="objectID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagIDs" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncTagTemplateEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagTemplateVersion" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tagTemplates" nillable="true" type="ax21:TagTemplate"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TagTemplate">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="needChildTag" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="parentTagID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="piority" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singleOption" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagLevel" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tagStatus" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncProductEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="album" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="copyrightID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="drmType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="invalidateDate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="metadataSet" nillable="true" type="ax21:MetadataInfo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="paramSet" nillable="true" type="ax21:ParamInfo"/>
+                    <xs:element minOccurs="0" name="price" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="property" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="releaseType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="securityID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singer" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validateDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncMaterialEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="album" nillable="true" type="ax21:Album"/>
+                    <xs:element minOccurs="0" name="artist" nillable="true" type="ax21:Artist"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="song" nillable="true" type="ax21:Song"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Album">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="albumID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumIntro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumLength" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumNameFirstLetter" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumNamePinyin" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumPicL" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumPicM" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumPicS" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="awards" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="productionCompany" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="publishArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="publishCompany" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="publishDate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="salesVolume" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerID" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="songIDs" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="trackCount" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Artist">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activeYears" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="anotherName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistNameFirstLetter" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistNamePinyin" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistPicL" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistPicM" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="artistPicS" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="awards" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="birthDate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="birthPlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bloodType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="company" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="country" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="englishName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="formerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="height" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="hobby" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="idol" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="instrument" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="intro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lover" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nickName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="representWorks" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="school" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="similarArtist" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerarea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerlevel" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerstyle" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="weitht" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Song">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CMSURL" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="albumInfo" nillable="true" type="ax21:AlbumInfo"/>
+                    <xs:element minOccurs="0" name="area" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cnductorID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cnductorName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="composerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="composerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="copyrightID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="intro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="language" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricUrl" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricsWriterID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricsWriterName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="prformerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="prformerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="publishYear" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songNameFirstLetter" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songNamePinyin" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="speed" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="trackNo" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncCrbtProductEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="contentInfo" nillable="true" type="ax21:ContentInfo"/>
+                    <xs:element minOccurs="0" name="eventType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="provinceID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="timeStamp" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ContentInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ISRC" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="addTime" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="albumInfo" nillable="true" type="ax21:AlbumInfo"/>
+                    <xs:element minOccurs="0" name="appendInfo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="approveTime" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="auditFilePath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmsSingerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmsSingerNameLetter" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="corpID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="musicID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="playFilePath" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="price" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="property" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="spID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="spName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toneID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toneName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toneNameLetter" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toneValidDay" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncCrbtDeployResultEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="accessPlatformID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="eventInfo" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="failProvinceName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="role" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="roleCode" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="successProvinceName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="successRate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toneID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SyncCatalogInfoEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="albumInfo" nillable="true" type="ax21:AlbumInfo"/>
+                    <xs:element minOccurs="0" name="composerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="composerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="copyrightID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricUrl" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricsWriterID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lyricsWriterName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="singerName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="songName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DAlbumInfoEvt">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CVersion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SPName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="accessPlatformID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="action" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="albumType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cmpID" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="contentSet" nillable="true" type="ax23:ContentInfo"/>
+                    <xs:element minOccurs="0" name="invalidateDate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="metadataSet" nillable="true" type="ax23:MetadataInfo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="paramSet" nillable="true" type="ax23:ParamInfo"/>
+                    <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="price" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="relationID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="securityID" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validateDate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="syncCatalogInfoRequest">
+        <wsdl:part name="parameters" element="ns:syncCatalogInfo"/>
+    </wsdl:message>
+    <wsdl:message name="syncCatalogInfoResponse">
+        <wsdl:part name="parameters" element="ns:syncCatalogInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncProductRequest">
+        <wsdl:part name="parameters" element="ns:syncProduct"/>
+    </wsdl:message>
+    <wsdl:message name="syncProductResponse">
+        <wsdl:part name="parameters" element="ns:syncProductResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncTagsRequest">
+        <wsdl:part name="parameters" element="ns:syncTags"/>
+    </wsdl:message>
+    <wsdl:message name="syncTagsResponse">
+        <wsdl:part name="parameters" element="ns:syncTagsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncMaterialRequest">
+        <wsdl:part name="parameters" element="ns:syncMaterial"/>
+    </wsdl:message>
+    <wsdl:message name="syncMaterialResponse">
+        <wsdl:part name="parameters" element="ns:syncMaterialResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deployeDAlbumRequest">
+        <wsdl:part name="parameters" element="ns:deployeDAlbum"/>
+    </wsdl:message>
+    <wsdl:message name="deployeDAlbumResponse">
+        <wsdl:part name="parameters" element="ns:deployeDAlbumResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncCrbtProductRequest">
+        <wsdl:part name="parameters" element="ns:syncCrbtProduct"/>
+    </wsdl:message>
+    <wsdl:message name="syncCrbtProductResponse">
+        <wsdl:part name="parameters" element="ns:syncCrbtProductResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncTagTemplateRequest">
+        <wsdl:part name="parameters" element="ns:syncTagTemplate"/>
+    </wsdl:message>
+    <wsdl:message name="syncTagTemplateResponse">
+        <wsdl:part name="parameters" element="ns:syncTagTemplateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncCrbtDeployResultRequest">
+        <wsdl:part name="parameters" element="ns:syncCrbtDeployResult"/>
+    </wsdl:message>
+    <wsdl:message name="syncCrbtDeployResultResponse">
+        <wsdl:part name="parameters" element="ns:syncCrbtDeployResultResponse"/>
+    </wsdl:message>
+    <wsdl:message name="syncWirelessProductRequest">
+        <wsdl:part name="parameters" element="ns:syncWirelessProduct"/>
+    </wsdl:message>
+    <wsdl:message name="syncWirelessProductResponse">
+        <wsdl:part name="parameters" element="ns:syncWirelessProductResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="productServicePortType">
+        <wsdl:operation name="syncCatalogInfo">
+            <wsdl:input message="ns:syncCatalogInfoRequest" wsaw:Action="urn:syncCatalogInfo"/>
+            <wsdl:output message="ns:syncCatalogInfoResponse" wsaw:Action="urn:syncCatalogInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncProduct">
+            <wsdl:input message="ns:syncProductRequest" wsaw:Action="urn:syncProduct"/>
+            <wsdl:output message="ns:syncProductResponse" wsaw:Action="urn:syncProductResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncTags">
+            <wsdl:input message="ns:syncTagsRequest" wsaw:Action="urn:syncTags"/>
+            <wsdl:output message="ns:syncTagsResponse" wsaw:Action="urn:syncTagsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncMaterial">
+            <wsdl:input message="ns:syncMaterialRequest" wsaw:Action="urn:syncMaterial"/>
+            <wsdl:output message="ns:syncMaterialResponse" wsaw:Action="urn:syncMaterialResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deployeDAlbum">
+            <wsdl:input message="ns:deployeDAlbumRequest" wsaw:Action="urn:deployeDAlbum"/>
+            <wsdl:output message="ns:deployeDAlbumResponse" wsaw:Action="urn:deployeDAlbumResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtProduct">
+            <wsdl:input message="ns:syncCrbtProductRequest" wsaw:Action="urn:syncCrbtProduct"/>
+            <wsdl:output message="ns:syncCrbtProductResponse" wsaw:Action="urn:syncCrbtProductResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncTagTemplate">
+            <wsdl:input message="ns:syncTagTemplateRequest" wsaw:Action="urn:syncTagTemplate"/>
+            <wsdl:output message="ns:syncTagTemplateResponse" wsaw:Action="urn:syncTagTemplateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtDeployResult">
+            <wsdl:input message="ns:syncCrbtDeployResultRequest" wsaw:Action="urn:syncCrbtDeployResult"/>
+            <wsdl:output message="ns:syncCrbtDeployResultResponse" wsaw:Action="urn:syncCrbtDeployResultResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="syncWirelessProduct">
+            <wsdl:input message="ns:syncWirelessProductRequest" wsaw:Action="urn:syncWirelessProduct"/>
+            <wsdl:output message="ns:syncWirelessProductResponse" wsaw:Action="urn:syncWirelessProductResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="productServiceSoap11Binding" type="ns:productServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="syncProduct">
+            <soap:operation soapAction="urn:syncProduct" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCatalogInfo">
+            <soap:operation soapAction="urn:syncCatalogInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTags">
+            <soap:operation soapAction="urn:syncTags" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncMaterial">
+            <soap:operation soapAction="urn:syncMaterial" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deployeDAlbum">
+            <soap:operation soapAction="urn:deployeDAlbum" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtProduct">
+            <soap:operation soapAction="urn:syncCrbtProduct" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTagTemplate">
+            <soap:operation soapAction="urn:syncTagTemplate" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtDeployResult">
+            <soap:operation soapAction="urn:syncCrbtDeployResult" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncWirelessProduct">
+            <soap:operation soapAction="urn:syncWirelessProduct" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="productServiceSoap12Binding" type="ns:productServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="syncProduct">
+            <soap12:operation soapAction="urn:syncProduct" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCatalogInfo">
+            <soap12:operation soapAction="urn:syncCatalogInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTags">
+            <soap12:operation soapAction="urn:syncTags" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncMaterial">
+            <soap12:operation soapAction="urn:syncMaterial" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deployeDAlbum">
+            <soap12:operation soapAction="urn:deployeDAlbum" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtProduct">
+            <soap12:operation soapAction="urn:syncCrbtProduct" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTagTemplate">
+            <soap12:operation soapAction="urn:syncTagTemplate" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtDeployResult">
+            <soap12:operation soapAction="urn:syncCrbtDeployResult" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncWirelessProduct">
+            <soap12:operation soapAction="urn:syncWirelessProduct" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="productServiceHttpBinding" type="ns:productServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="syncProduct">
+            <http:operation location="syncProduct"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCatalogInfo">
+            <http:operation location="syncCatalogInfo"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTags">
+            <http:operation location="syncTags"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncMaterial">
+            <http:operation location="syncMaterial"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deployeDAlbum">
+            <http:operation location="deployeDAlbum"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtProduct">
+            <http:operation location="syncCrbtProduct"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncTagTemplate">
+            <http:operation location="syncTagTemplate"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncCrbtDeployResult">
+            <http:operation location="syncCrbtDeployResult"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="syncWirelessProduct">
+            <http:operation location="syncWirelessProduct"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="productService">
+        <wsdl:port name="productServiceHttpSoap11Endpoint" binding="ns:productServiceSoap11Binding">
+            <soap:address location="http://localhost:8080/ProductServer/services/productService.productServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="productServiceHttpSoap12Endpoint" binding="ns:productServiceSoap12Binding">
+            <soap12:address location="http://localhost:8080/ProductServer/services/productService.productServiceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="productServiceHttpEndpoint" binding="ns:productServiceHttpBinding">
+            <http:address location="http://localhost:8080/ProductServer/services/productService.productServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
