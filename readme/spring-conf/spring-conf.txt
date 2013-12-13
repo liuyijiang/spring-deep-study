@@ -1,0 +1,21 @@
+spring 配置 
+ 自动注入配置 
+<context:component-scan  
+        base-package=""  
+        resource-pattern="**/*.class"  
+        name-generator="org.springframework.context.annotation.AnnotationBeanNameGenerator"  
+        use-default-filters="true"  
+        annotation-config="true">  
+                <context:include-filter type="aspectj" expression=""/>  
+                <context:exclude-filter type="regex" expression=""/>  
+</context:component-scan
+base-package：表示扫描注解类的开始位置，即将在指定的包中扫描，其他包中的注解类将不被扫描，默认将扫描所有类路径；
+resource-pattern：表示扫描注解类的后缀匹配模式，即“base-package+resource-pattern”将组成匹配模式用于匹配类路径中的组件，默认后缀为“**/*.class”，即指定包下的所有以.class结尾的类文件；
+name-generator：默认情况下的Bean标识符生成策略，默认是AnnotationBeanNameGenerator，其将生成以小写开头的类名（不包括包名）；可以自定义自己的标识符生成策略
+use-default-filters：默认为true表示过滤@Component、@ManagedBean、@Named注解的类，如果改为false默认将不过滤这些默认的注解来定义Bean，即这些注解类不能被过滤到，即不能通过这些注解进行Bean定义；
+annotation-config：表示是否自动支持注解实现Bean依赖注入，默认支持，如果设置为false，将关闭支持注解的依赖注入，需要通过<context:annotation-config/>开启
+
+    <context:include-filter>：表示过滤到的类将被注册为Spring管理Bean；
+    <context:exclude-filter>：表示过滤到的类将不被注册为Spring管理Bean，它比<context:include-filter>具有更高优先级；
+    type：表示过滤器类型，目前支持注解类型、类类型、正则表达式、aspectj表达式过滤器，当然也可以自定义自己的过滤器，实现org.springframework.core.type.filter.TypeFilter即可；
+    expression：表示过滤器表达式。

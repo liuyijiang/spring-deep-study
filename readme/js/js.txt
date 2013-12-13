@@ -1,0 +1,30 @@
+js 面向对象编程 http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html
+1定义一个类 先穿件一个构造函数
+function Books(name,price){
+	this.name = name;
+	this.price = price;
+};
+
+Books.prototype.showString = function(){
+	return this.name + this.price;
+};
+
+Books.prototype.showAoth = function(){
+	 $.ajax({
+	   		url : "http://localhost:8080/springdeepstudy/bajaxget",
+	   		type : "POST",
+	   		cache : false,
+	   		async : false,
+	   		success : function(item) {
+	   			$("#mess").html(item.name);
+	   		}
+	   }); 
+};
+
+
+function test2(){
+	var book = new Books('av',23);
+	var str = book.showString();
+	alert(str);
+	book.showAoth();
+}
