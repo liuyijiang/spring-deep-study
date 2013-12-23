@@ -32,4 +32,9 @@ public class Ship {
 		this.create = create;
 	}
 	
+	@Override
+	public String toString(){
+		return "id: "+id + "name: "+name + "create: "+create;
+	}
+	
 }
