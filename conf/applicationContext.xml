@@ -72,6 +72,6 @@
 <!--     <import resource="applicationAopContext.xml"/>  -->
     
     <!-- 分布式session -->
-    <import resource="applicationSessionInterceptorContext.xml"/> 
+<!--     <import resource="applicationSessionInterceptorContext.xml"/>  -->
     
 </beans>
