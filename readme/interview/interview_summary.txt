@@ -1,0 +1,7 @@
+关于path和classpath的含义：  http://blog.csdn.net/hlw881008/article/details/5505251
+1.path变量的含义就是系统在任何路径下都可以识别java,javac命令 
+2.classpath变量的含义是告诉jvm要使用或执行的class放在什么路径上，便于JVM加载class文件，.;表示当前路径，tools.jar和dt.jar为类库路径。
+     如果不用Swing里面的东西，可以不加dt.jar。 tools.jar里面是最基本的工具类，比如javac，不加是无法做开发的。  
+dt.jar是关于运行环境的类库,主要是swing的包
+tools.jar是关于一些工具的类库
+rt.jar包含了jdk的基础类库，也就是你在java doc里面看到的所有的类的class文件
