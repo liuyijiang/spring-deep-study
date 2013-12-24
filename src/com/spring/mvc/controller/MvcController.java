@@ -2,6 +2,7 @@ package com.spring.mvc.controller;
 
 import java.util.Date;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,18 +21,26 @@ public class MvcController {
 	 * @return
 	 */
 	@ModelAttribute
-	private Ship ship(){
+	public Ship ship(){
 		Ship s = new Ship();
 		s.setCreate(new Date());
 		s.setId(1);
-		s.setName("ship 1");
+		s.setName(StringEscapeUtils.escapeJavaScript("<p onmouseover='ss()'><script>function ss(){alert(1);}</script>s111<p>"));
 		return s;
 	}
 	
+	/**
+	 * 模拟xss注入
+	 * @param ship
+	 * @return
+	 */
 	@RequestMapping(value = "/mvcindex", method = RequestMethod.GET)
 	public ModelAndView index(@ModelAttribute Ship ship){
 		System.out.println(ship.toString());
-		return new ModelAndView("mvcindex.jsp");
+		ModelAndView mv = new ModelAndView("mvcindex.jsp");
+		System.out.println(ship.getName());
+		mv.getModel().put("ship", ship);
+		return mv;
 	}
 	
 	/**
