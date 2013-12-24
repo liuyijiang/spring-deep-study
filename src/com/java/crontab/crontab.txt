@@ -1,0 +1,70 @@
+使用crontab实现定时任务
+
+Crontab的格式
+
+第1列分钟1～59
+第2列小时1～23（0表示子夜）
+第3列日1～31
+第4列月1～12
+第5列星期0～6（0表示星期天）
+
+# Example of job definition:
+# .---------------- minute (0 - 59) 分钟
+# |  .------------- hour (0 - 23) 小时
+# |  |  .---------- day of month (1 - 31) 日
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ... 月
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat 星期
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+ 
+ /etc/
+    crontab 文件
+    cron.d  目录
+    cron.daily 目录
+    cron.hourly 目录
+    cron.monthly 目录
+    cron.weekly 目录
+ 
+ #注
+ crontab -l 显示的是当前用户的crontabl。 /etc/crontab 修改的是系统的crontab 两者没有关系 
+ 
+修改后重启crontab
+/etc/init.d/cron restart 开始执行
+ 
+ 
+ 
+ubuntu下定时执行工具cron开启关闭重启
+配置文件一般为/etc/init.d/cron
+启动：sudo /etc/init.d/cron start
+关闭：sudo /etc/init.d/cron stop
+重启：sudo /etc/init.d/cron restart
+重新载入配置：sudo /etc/init.d/cron reload
+可以用ps aux | grep cron命令查看cron是否已启动
+ 
+###############################例子#######################################  
+
+除了数字还有几个个特殊的符号就是”*”、”/”和”-”、”,”，*代表所有的取值范围内的数字，”/”代表每的意思,”*/5″表示每5个单位，”-”代表从某个数字到某个数字,”,”分开几个离散的数字。以下举几个例子说明问题：
+
+45 4  1, 10,22 * * /usr/local/apache/bin/apachectl restart
+上面的例子表示每月1、10、22日的4 : 45重启apache。    
+#（逗号分隔） 1, 10,22
+
+
+30 21 * * * /usr/local/apache/bin/apachectl restart
+上面的例子表示每晚的21:30重启apache。
+######################################################
+#  执行jar
+######################################################
+由于cron在执行时不加载系统环境变量
+所以执行jar的shell这样写()
+
+#!/bin/sh
+cd /root/dev #调转到文件夹
+/usr/lib/jvm/jdk1.7.0_21/bin/java -jar  /root/dev/com.jar #使用绝度路径执行java -jar
+
+/etc/crontab 文件修改加入
+*/1 * * * * root cd /root/dev && ./run
+每分钟执行以下
+
+
+

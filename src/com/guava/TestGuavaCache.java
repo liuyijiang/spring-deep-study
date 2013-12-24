@@ -68,6 +68,7 @@ public class TestGuavaCache {
 		System.out.println(graphs.get("testKey"));
 		System.out.println("————————————————————————————————");
 		System.out.println(graphs.get("testKey"));
+		//graphs.as
 	}
 	
 	/**
