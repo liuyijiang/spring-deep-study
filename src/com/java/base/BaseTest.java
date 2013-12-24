@@ -4,8 +4,14 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.persistence.Table;
+
+import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  * 测试java的一些基础方法
@@ -30,7 +36,8 @@ public class BaseTest {
 		BaseTest b = new BaseTest();
 //		// b.test(Bean.class);
 //		b.testmethod(Bean.class);
-		b.testisAssignableFrom();
+//		b.testisAssignableFrom();
+		b.testlang();
 	}
 
 	public void testPageModel() {
@@ -103,5 +110,42 @@ public class BaseTest {
 		
 	}
 	
+	/**
+	 *  遍历map
+	 */
+	public void testmap(){
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("key1", "Str1");
+		map.put("key2", "Str2");
+		map.put("key3", "Str3");
+		for(Entry<String,String> e : map.entrySet()){
+			System.out.println(e.getKey()+" ****  " + e.getValue());
+		} 
+	}
+	
+	public void testlang(){
+		String userName = "1' or '1'='1";
+        String password = "123456";
+        String sql = "SELECT COUNT(userId) FROM t_user WHERE userName='" + userName + "' AND password ='" + password + "'";
+        System.out.println(sql);
+        userName = StringEscapeUtils.escapeSql(userName);
+        password = StringEscapeUtils.escapeSql(password);
+        sql = "SELECT COUNT(userId) FROM t_user WHERE userName='" + userName + "' AND password ='" + password + "'";
+        System.out.println(sql);
+        System.out.println(StringEscapeUtils.escapeHtml("<a>dddd</a>"));   
+        System.out.println(StringEscapeUtils.unescapeHtml("&lt;a&gt;dddd&lt;/a&gt;"));
+        System.out.println(StringEscapeUtils.escapeJavaScript("<script>alert('1111')</script>"));
+        System.out.println(StringEscapeUtils.escapeJava("中国"));
+//        System.out.println(RandomStringUtils.randomAlphabetic(10));  
+//        
+//     // 10位英数  
+//     System.out.println(RandomStringUtils.randomAlphanumeric(10));  
+//       
+//     // 10位ASCII码  
+//     System.out.println(RandomStringUtils.randomAscii(10));  
+//       
+//     // 指定文字10位  
+//     System.out.println(RandomStringUtils.random(10, "abcde")); 
+	}
 	
 }
