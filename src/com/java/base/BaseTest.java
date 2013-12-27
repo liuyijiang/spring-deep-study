@@ -132,9 +132,10 @@ public class BaseTest {
         password = StringEscapeUtils.escapeSql(password);
         sql = "SELECT COUNT(userId) FROM t_user WHERE userName='" + userName + "' AND password ='" + password + "'";
         System.out.println(sql);
-        System.out.println(StringEscapeUtils.escapeHtml("<a>dddd</a>"));   
+        System.out.println(StringEscapeUtils.escapeHtml("<a>dddd</a>"));  
+        System.out.println(StringEscapeUtils.escapeHtml("<iframe>dddd</iframe>"));
         System.out.println(StringEscapeUtils.unescapeHtml("&lt;a&gt;dddd&lt;/a&gt;"));
-        System.out.println(StringEscapeUtils.escapeJavaScript("<script>alert('1111')</script>"));
+        System.out.println(StringEscapeUtils.escapeJavaScript("<script>alert(1)</script>"));
         System.out.println(StringEscapeUtils.unescapeJavaScript("<script>alert('1111')</script>"));
         System.out.println(StringEscapeUtils.escapeJava("中国"));
 //        System.out.println(RandomStringUtils.randomAlphabetic(10));  
