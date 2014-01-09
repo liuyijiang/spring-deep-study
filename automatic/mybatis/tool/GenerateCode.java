@@ -29,7 +29,8 @@ public class GenerateCode {
 	 */
 	public void generateMain() throws Exception {
 //		SCHEMA = "HLWQKTEST";
-		generate(GenerateCode.class.getResource("generate_config_test.xml").getPath());
+//		generate(GenerateCode.class.getResource("generate_config_test.xml").getPath());
+		generate(GenerateCode.class.getResource("generate_config_oracle_test.xml").getPath());
 //		SCHEMA = "HLWQKTYQK";
 //		generate(GenerateCode.class.getResource("generate_config_tyst_tyqk.xml").getPath());
 	}
