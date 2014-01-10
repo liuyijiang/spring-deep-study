@@ -15,6 +15,7 @@ public class HttpController {
 	@RequestMapping(value = "/httpindex", method = RequestMethod.GET)
 	public void testPW(HttpServletRequest r,HttpServletResponse p){
 		try {
+			System.out.println(r.getAttribute("javax.servlet.include.request_uri"));
 			p.getWriter().write("jimliui");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
