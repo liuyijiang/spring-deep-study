@@ -9,6 +9,15 @@ import sun.misc.BASE64Encoder;
 
 public class StringUtil {
  
+	public static boolean stringIsEmpty(String str) {
+		if (str == null || str.trim().equals("")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 	private final static Set<Character> ESPECIAL_SET = new HashSet<Character>();
 	static {
 		for (char ch : "~!@#$%^&*_+{}|:\"<>?`-=[]\\;',./·～！@#￥%……&×（）——+『』：“”《》？【】、；‘，。/".toCharArray()) {

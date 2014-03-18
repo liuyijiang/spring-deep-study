@@ -16,7 +16,7 @@ import com.spring.mogodb.bean.MapPointBean;
 @Component
 public class MongodbDaoTemplate {
 
-	@Autowired
+	//@Autowired
 	private MongoOperations mog; 
 	
 	public void save(){

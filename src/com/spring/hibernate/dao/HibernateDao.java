@@ -9,7 +9,7 @@ public class HibernateDao<T> {
   
 	private Class<T> clazs;
 	
-	@Autowired
+	//@Autowired
 	HibernateTemplate templete;
 	
 	@SuppressWarnings({ "unchecked", "hiding" })

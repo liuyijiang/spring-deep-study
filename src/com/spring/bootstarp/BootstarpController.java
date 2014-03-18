@@ -8,7 +8,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +49,19 @@ public class BootstarpController {
 	@RequestMapping(value = "/bindex", method = RequestMethod.GET)
 	public ModelAndView bindex(){
 		System.out.println(value);
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-*.xml");
 		System.out.println(num);
+		Object obj;
+		try {
+			obj = Class.forName("com.karakal.internetMusic.crawler.model.SongTyqk").newInstance();
+			BeanWrapper bw = new BeanWrapperImpl(obj); 
+			bw.setPropertyValue("songname", "Erica"); 
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//SongTyqk st = new SongTyqk();
 		return new ModelAndView("bindex.jsp");
 	}
 	

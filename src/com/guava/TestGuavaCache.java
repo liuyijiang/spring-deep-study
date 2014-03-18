@@ -23,8 +23,8 @@ public class TestGuavaCache {
 	public static void main(String[] args) {
 		TestGuavaCache t = new TestGuavaCache();
 		try {
-			//t.testCacheBuilder();
-			t.testCallable();
+			t.testCacheBuilder();
+			//t.testCallable();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

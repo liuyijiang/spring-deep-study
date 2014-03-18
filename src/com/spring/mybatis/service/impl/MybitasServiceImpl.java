@@ -17,7 +17,7 @@ import com.spring.mybatis.service.MybitasService;
 @Service
 public class MybitasServiceImpl implements MybitasService{
    
-	@Autowired
+	//@Autowired
     private ShipMapper shipMapper;
 	
     public Ship selectShip(int id){

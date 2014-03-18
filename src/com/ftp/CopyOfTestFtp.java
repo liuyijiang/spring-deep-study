@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
@@ -18,18 +19,21 @@ import org.apache.commons.net.ftp.FTPReply;
  * @author Administrator
  * 
  */
-public class TestFtp {
+public class CopyOfTestFtp {
 
-	private static final String HOST = "192.168.2.89";
+	private static final String HOST = "218.200.160.122";
 	private FTPClient ftp = new FTPClient();
     private static final String LOACL_DIR = "D://";
 	
 	public static void main(String[] args) {
-		TestFtp f = new TestFtp();
-		 f.testFTPUpload("D://color.txt", "color1.txt", "mxk", "123");//成功
+		CopyOfTestFtp f = new CopyOfTestFtp();
+		///public/ringmaker01/n4/karakalupload/2013/11/2013年11月20日紧急准入上海步升大风1首/彩铃/3_88ct/Lights%20Up-方大同.wav
+		// f.testFTPUpload("D://Lights%20Up-方大同.wav", "Lights%20Up-方大同.wav", "tyqk", "q3#rh9Wr");//成功
 		//f.testFTPUploadFromString("刘一江的111", "document.txt", "ting", "123");// 成功
-		//f.testFTPDownload("liuyijiang.jpg", "color.jpg", "mxk", "123");// 成功
-		
+		//ftp://218.200.160.122/public/600902-2008430/tone/2008/07/17/2008年7月/6月无线星空674首/彩铃/7_mp3-128kbps/新乐园-吴浩康.mp3
+		f.testFTPDownload("goodgood.mp3", "1203522088921_自导自演的悲剧-陶吉吉.wav", "tyqk", "q3#rh9Wr");// 成功
+		//ftp://218.200.160.122/public/600902/2008年2月彩铃分发/1月EMI5000首歌曲(第15批)/4_816/2008022041/1203522088921_自导自演的悲剧-陶吉吉.wav
+		//ftp://218.200.160.122/public/600902-2008430/tone/2008/07/11/2008年6月/6月环球2000首(7)/彩铃/7_mp3-128kbps/Its Alright-Mobb Deep.mp3
 	}
 
 	/**
@@ -55,8 +59,10 @@ public class TestFtp {
 			showState();
 			ftp.setFileType(FTP.BINARY_FILE_TYPE);// 设置传输文件类型
 			ftp.setControlEncoding("utf8");// 设置字符集，可能会帮助你解决远程服务器上中文文件名的问题
-			ftp.makeDirectory("/home/mxk/images/20121112/");
-			ftp.changeWorkingDirectory("/home/mxk/images/20121112/");// 切换文件夹
+//			ftp.makeDirectory("/home/mxk/images/20121112/");
+//			ftp.changeWorkingDirectory("/home/mxk/images/20121112/");
+			//ftp.makeDirectory("/home/mxk/images/20121112/");
+			ftp.changeWorkingDirectory("/public/ringmaker01/n4/karakalupload/2013/11/2013年11月20日紧急准入上海步升大风1首/彩铃/3_88ct/");// 切换文件夹
 															// 这个文件必须是登录用户可读性的
 			showState();
 			ftp.enterLocalPassiveMode();//不加上这句，碰到有些ftp服务器还真的不能列取服务器上的文件名. 而且提示你connection reset。
@@ -95,7 +101,8 @@ public class TestFtp {
 			showState();
 			ftp.setFileType(FTP.BINARY_FILE_TYPE);// 设置传输文件类型
 			ftp.setControlEncoding("utf8");// 设置字符集，可能会帮助你解决远程服务器上中文文件名的问题
-			ftp.changeWorkingDirectory("/home/ting/ftp/");// 切换文件夹
+			//ftp.changeWorkingDirectory("/home/ting/ftp/");// 切换文件夹
+			ftp.changeWorkingDirectory("/public/ringmaker01/n4/karakalupload/2013/11/2013年11月20日紧急准入上海步升大风1首/彩铃/3_88ct/");// 切换文件夹
 															// 这个文件必须是登录用户可读性的
 			showState();
 			ftp.enterLocalPassiveMode();//不加上这句，碰到有些ftp服务器还真的不能列取服务器上的文件名. 而且提示你connection reset。
@@ -128,19 +135,22 @@ public class TestFtp {
 			showState();
 			ftp.login(username, passwrod);// 登录
 			showState();
-			ftp.setControlEncoding("utf8");// 设置字符集，可能会帮助你解决远程服务器上中文文件名的问题
-			ftp.changeWorkingDirectory("/home/mxk/images/");// 切换文件夹
+			ftp.setControlEncoding("gbk");// 设置字符集，可能会帮助你解决远程服务器上中文文件名的问题 utf8
+			ftp.changeWorkingDirectory(TOios8859("/public/600902/2008年2月彩铃分发/1月EMI5000首歌曲(第15批)/4_816/2008022041/","gbk")); //2013年11月20日紧急准入上海步升大风1首/彩铃/3_88ct/
 			ftp.enterLocalPassiveMode();//不加上这句，碰到有些ftp服务器还真的不能列取服务器上的文件名. 而且提示你connection reset。
-			FTPFile[] fs = ftp.listFiles();  
+			FTPFile[] fs = ftp.listFiles(); 
+			System.out.println(fs.length);
+			System.out.println(ftpfileName);
 			for(FTPFile f : fs){
-				//System.out.println(f.getName());
-				 if(f.getName().equals(ftpfileName)){  //ftp上文件名
+				System.out.println(f.getName());
+				 if(f.getName().equals(ftpfileName)){  //ftp上文件名 //600902-2008430 //ftpfileName
 		                File localFile = new File(LOACL_DIR+file);  
 		                OutputStream is = new FileOutputStream(localFile);   
 		                ftp.retrieveFile(f.getName(), is);  
-		                is.close();  
-		            }  
+		                is.close(); 
+				 }  
 			}
+			System.out.println("2");
 			ftp.logout();  
 			if (ftp.isConnected()) {
 				ftp.disconnect();
@@ -150,6 +160,17 @@ public class TestFtp {
 		}
 	}
 
+	public static String TOios8859(Object obj, String encoding){
+		String result = null;
+		try {
+			result = new String(obj.toString().getBytes(encoding),"ISO-8859-1");//ISO-8859-1
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	
 	/**
 	 * 显示状态
 	 */

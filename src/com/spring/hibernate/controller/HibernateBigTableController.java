@@ -15,10 +15,10 @@ import com.spring.hibernate.entity.Ship;
 @Controller
 public class HibernateBigTableController {
    
-	@Autowired
+	//@Autowired
 	private UserDao dao;
 	
-	@Autowired
+	//@Autowired
 	private TestAopService ap;
 	
 	@RequestMapping(value = "/testhib", method = RequestMethod.GET)

@@ -6,7 +6,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
-
+/**
+ *  当一个类需要获取ApplicationContext实例时，可以让该类实现ApplicationContextAware接口。代码展示如
+ * @author Administrator
+ *
+ */
 @Service
 public class SpringContextAware implements ApplicationContextAware {
 

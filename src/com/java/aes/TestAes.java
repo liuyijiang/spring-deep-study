@@ -1,7 +1,6 @@
 package com.java.aes;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
@@ -19,8 +18,8 @@ public class TestAes {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String content = "testtesttesttestststt";  
-		String password = "12345678";  
+		String content = "xuting87112";  
+		String password = "liuyj89726";  
 		TestAes ta = new TestAes();
 		System.out.println("aes加密");
 		byte[] bb = ta.encrypt(content, password);

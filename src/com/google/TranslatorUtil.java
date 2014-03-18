@@ -1,6 +1,8 @@
 package com.google;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +16,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.util.StringUtil;
 
 public class TranslatorUtil {
 
@@ -51,10 +55,23 @@ public class TranslatorUtil {
 	public static String professionalTranslator(String txt){
 		System.out.println(regxp(txt,ENGLISH,","));
 		String str[] = regxp(txt,ENGLISH,",").split(",");
+		List<String> list = new ArrayList<String>();
 		for(String st : str){
-			System.out.println(st);
+			if(!StringUtil.stringIsEmpty(st)){
+				list.add(st);
+			}
 		}
-		return null;
+		for(String s : list){
+			//redis获得专业数据
+			if(s.toLowerCase().equals("askold")){
+				txt = txt.replaceAll(s,"阿斯科尔德号");
+			}
+			if(s.toLowerCase().equals("cesarevic")){
+				txt = txt.replaceAll(s,"太子号");
+			}
+			//System.out.println(s);
+		}
+		return txt;
 	}
 	
 	private static String regxp(String html,String regx,String split){

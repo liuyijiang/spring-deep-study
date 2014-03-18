@@ -20,10 +20,10 @@ import com.spring.mybatis.service.MybitasService;
 @Controller
 public class MybatisController {
 
-	@Autowired
+	//@Autowired
     private MybitasService service;	
 	
-	@Autowired
+	//@Autowired
     private ShipMapper shipMapper;
 	
 	

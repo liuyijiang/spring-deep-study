@@ -10,7 +10,7 @@ import com.spring.hibernate.entity.Ship;
 @Service
 public class UserDao {
    
-	@Autowired
+//	@Autowired
 	private HibernateTemplate templete;
 	
 	public void teave(Object obj){
