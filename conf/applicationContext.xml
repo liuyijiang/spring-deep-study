@@ -46,14 +46,14 @@
    <import resource="applicationContextBase.xml"/>
    
    <!-- mongodb -->
-    <import resource="applicationMongoDBContext.xml"/>
+<!--     <import resource="applicationMongoDBContext.xml"/> -->
    
    <!-- spring activemq的配置 -->
 <!--    <import resource="applicationActiveMqContext_base.xml"/> -->
  <!--mq集群 <import resource="applicationActiveMqContext_master_slave.xml"/> -->  
    
    <!-- spring aop自定义注解配置 -->
-   <import resource="applicationHibernateContext.xml"/> 
+<!--    <import resource="applicationHibernateContext.xml"/>  -->
 <!-- <import resource="applicationHibernateContext.xml"/> -->
 <!--    <import resource="applicationMemcashedContext.xml"/> -->
 
@@ -64,7 +64,7 @@
     <import resource="applicationContextfileupload.xml"/>
     
     <!-- spring 集成 mybatis -->
-     <import resource="applicationMybatisContext.xml"/> 
+<!--      <import resource="applicationMybatisContext.xml"/>  -->
    
     <!-- spring jdbctemplate -->
 <!--     <import resource="applicationJdbcTemplateContext.xml"/> -->
