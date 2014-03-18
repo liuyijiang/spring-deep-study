@@ -27,7 +27,6 @@
   	  return true;
    }
   
-  
 	function ajaxFileUpload()
 	{   
 		if(validateImage()){
